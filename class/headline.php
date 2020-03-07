@@ -221,7 +221,7 @@ class rssc_headlineHeadlineHandler
         $ret   = [];
         $limit = $start = 0;
         $sql   = 'SELECT * FROM ' . $this->db->prefix('rssc_headline');
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof \criteriaelement) {
             $sql   .= ' ' . $criteria->renderWhere();
             $sql   .= ' ORDER BY headline_weight ' . $criteria->getOrder();
             $limit = $criteria->getLimit();
@@ -243,7 +243,7 @@ class rssc_headlineHeadlineHandler
     public function getCount($criteria = null)
     {
         $sql = 'SELECT COUNT(*) FROM ' . $this->db->prefix('rssc_headline');
-        if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
+        if (isset($criteria) && $criteria instanceof \criteriaelement) {
             $sql .= ' ' . $criteria->renderWhere();
         }
         if (!$result =& $this->db->query($sql)) {
