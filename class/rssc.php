@@ -147,7 +147,7 @@ class rssc_headlineRsscHandler extends rssc_error
         $rdf_url  = '';
         $atom_url = '';
 
-        if ($rss_url && ($rss_url != 'http://')) {
+        if ($rss_url && ('http://' != $rss_url)) {
             $mode = RSSC_C_MODE_RSS;
         } else {
             $mode = RSSC_C_MODE_AUTO;
@@ -155,7 +155,7 @@ class rssc_headlineRsscHandler extends rssc_error
 
         // discover xml link when auto mode
         $ret = $this->_rssc_utility->discover_for_manage($mode, $url, $rdf_url, $rss_url, $atom_url, $sel);
-        if ($ret == RSSC_CODE_DISCOVER_FAILED) {
+        if (RSSC_CODE_DISCOVER_FAILED == $ret) {
             $this->_set_errors($this->_rssc_utility->getErrors());
             return $ret;
         }
@@ -251,7 +251,7 @@ class rssc_headlineRsscHandler extends rssc_error
         $rdf_url  = '';
         $atom_url = '';
 
-        if ($rss_url && ($rss_url != 'http://')) {
+        if ($rss_url && ('http://' != $rss_url)) {
             $mode = RSSC_C_MODE_RSS;
         } else {
             $mode = RSSC_C_MODE_AUTO;
@@ -259,7 +259,7 @@ class rssc_headlineRsscHandler extends rssc_error
 
         // discover xml link when auto mode
         $ret = $this->_rssc_utility->discover_for_manage($mode, $url, $rdf_url, $rss_url, $atom_url, $sel);
-        if ($ret == RSSC_CODE_DISCOVER_FAILED) {
+        if (RSSC_CODE_DISCOVER_FAILED == $ret) {
             $this->_set_errors($this->_rssc_utility->getErrors());
             return $ret;
         }
@@ -293,11 +293,11 @@ class rssc_headlineRsscHandler extends rssc_error
         $rss_url  = $this->get_post_url($_POST, 'headline_rssurl');
         $encoding = $this->get_post_encoding($_POST['headline_encoding']);
 
-        if ($url && ($url != 'http://')) {
+        if ($url && ('http://' != $url)) {
             $link_obj->setVar('url', $url);
         }
 
-        if ($rss_url && ($rss_url != 'http://')) {
+        if ($rss_url && ('http://' != $rss_url)) {
             $mode = RSSC_C_MODE_RSS;
             $link_obj->setVar('rss_url', $rss_url);
             $link_obj->setVar('mode', RSSC_C_MODE_RSS);
@@ -392,7 +392,7 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     public function get_post_url($array, $key)
     {
-        if (isset($array[$key]) && ($array[$key] != 'http://')) {
+        if (isset($array[$key]) && ('http://' != $array[$key])) {
             return $array[$key];
         }
 
@@ -401,7 +401,7 @@ class rssc_headlineRsscHandler extends rssc_error
 
     public function get_post_encoding($value)
     {
-        if ($value == 'auto') {
+        if ('auto' == $value) {
             return '';
         }
 

@@ -26,7 +26,7 @@ for ($i = 0; $i < $count; $i++) {
 	$xoopsTpl->append('feed_sites', ['id' => $headlines[$i]->getVar('headline_id'), 'name' => $headlines[$i]->getVar('headline_name')]);
 }
 $xoopsTpl->assign('lang_headlines', _RSSC_HEADLINE_HEADLINES);
-if ($hlid == 0) {
+if (0 == $hlid) {
 	if ( isset($headlines[0]) )
 	{
 		$hlid = $headlines[0]->getVar('headline_id');
@@ -37,7 +37,7 @@ if ($hlid > 0) {
 	if (is_object($headline)) {
 		$renderer =& rssc_headline_getrenderer($headline);
 		if (!$renderer->renderFeed()) {
-			if ($xoopsConfig['debug_mode'] == 2) {
+			if (2 == $xoopsConfig['debug_mode']) {
 				$xoopsTpl->assign('headline', '<p>'.sprintf(_RSSC_HEADLINE_FAILGET, $headline->getVar('headline_name')).'<br />'.$renderer->getErrors().'</p>');
 			}
 		} else {

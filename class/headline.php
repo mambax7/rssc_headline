@@ -94,7 +94,7 @@ class rssc_headlineHeadlineHandler
                 return false;
             }
             $numrows = $this->db->getRowsNum($result);
-            if ($numrows == 1) {
+            if (1 == $numrows) {
                 $headline = new rssc_headline_Headline();
                 $headline->assignVars($this->db->fetchArray($result));
                 return $headline;
@@ -105,7 +105,7 @@ class rssc_headlineHeadlineHandler
 
     public function insert($headline)
     {
-        if (strtolower(get_class($headline)) != 'rssc_headline_headline') {
+        if ('rssc_headline_headline' != strtolower(get_class($headline))) {
             return false;
         }
         if (!$headline->cleanVars()) {
@@ -206,7 +206,7 @@ class rssc_headlineHeadlineHandler
 
     public function delete($headline)
     {
-        if (strtolower(get_class($headline)) != 'rssc_headline_headline') {
+        if ('rssc_headline_headline' != strtolower(get_class($headline))) {
             return false;
         }
         $sql = sprintf('DELETE FROM %s WHERE headline_id = %u', $this->db->prefix('rssc_headline'), $headline->getVar('headline_id'));

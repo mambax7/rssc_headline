@@ -25,7 +25,7 @@ function b_rssc_headline_show($options)
 	for ($i = 0; $i < $count; $i++) {
 		$renderer =& rssc_headline_getrenderer($headlines[$i]);
 		if (!$renderer->renderBlock()) {
-			if ($xoopsConfig['debug_mode'] == 2) {
+			if (2 == $xoopsConfig['debug_mode']) {
 				$block['feeds'][] = sprintf(_RSSC_HEADLINE_FAILGET, $headlines[$i]->getVar('headline_name')).'<br />'.$renderer->getErrors();
 			}
 			continue;

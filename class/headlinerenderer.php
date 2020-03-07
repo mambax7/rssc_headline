@@ -116,7 +116,7 @@ class rssc_headline_Renderer
         // ---
 
         $this->_tpl->assign_by_ref('channel', $channel_data);
-        if ($this->_hl->getVar('headline_mainimg') == 1) {
+        if (1 == $this->_hl->getVar('headline_mainimg')) {
             // ---
             //			$image_data =& $this->_parser->getImageData();
             //			array_walk($image_data, array($this, 'convertFromUtf8'));
@@ -124,7 +124,7 @@ class rssc_headline_Renderer
 
             $this->_tpl->assign_by_ref('image', $image_data);
         }
-        if ($this->_hl->getVar('headline_mainfull') == 1) {
+        if (1 == $this->_hl->getVar('headline_mainfull')) {
             $this->_tpl->assign('show_full', true);
         } else {
             $this->_tpl->assign('show_full', false);
@@ -193,7 +193,7 @@ class rssc_headline_Renderer
         // ---
 
         $this->_tpl->assign_by_ref('channel', $channel_data);
-        if ($this->_hl->getVar('headline_blockimg') == 1) {
+        if (1 == $this->_hl->getVar('headline_blockimg')) {
             // ---
             //			$image_data =& $this->_parser->getImageData();
             //			array_walk($image_data, array($this, 'convertFromUtf8'));

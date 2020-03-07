@@ -29,14 +29,14 @@ $rssc_handler = & xoops_getModuleHandler('rssc', 'rssc_headline');
 
 $op = 'list';
 
-if (!empty($_GET['op']) && ($_GET['op'] == 'delete' || $_GET['op'] == 'edit')) {
+if (!empty($_GET['op']) && ('delete' == $_GET['op'] || 'edit' == $_GET['op'])) {
     $op = $_GET['op'];
     $headline_id = intval($_GET['headline_id']);
 } elseif (!empty($_POST['op'])) {
     $op = $_POST['op'];
 }
 
-if ($op == 'list') {
+if ('list' == $op) {
     include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
     $hlman =& xoops_getModuleHandler('headline');;
     $headlines =& $hlman->getObjects();
@@ -167,7 +167,7 @@ if ($op == 'list') {
     exit();
 }
 
-if ($op == 'update') {
+if ('update' == $op) {
     $hlman =& xoops_getModuleHandler('headline');
     $i = 0;
     $msg = '';
@@ -212,7 +212,7 @@ if ($op == 'update') {
 //                $renderer->updateCache();
 //            }
 
-			if ( $rssc_handler->get_feed_count($headline_rssc_lid) == 0 ) 
+			if (0 == $rssc_handler->get_feed_count($headline_rssc_lid))
 			{
 				$rssc_handler->update_cache($headline_rssc_lid);
 			}
@@ -222,7 +222,7 @@ if ($op == 'update') {
         $i++;
     }
 
-    if ($msg != '') {
+    if ('' != $msg) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
@@ -233,13 +233,13 @@ if ($op == 'update') {
     redirect_header('index.php', 2, _AM_DBUPDATED);
 }
 
-if ($op == 'addgo') {
+if ('addgo' == $op) {
 
 // --- check rssc ---
 	$ret1 = $rssc_handler->check_add_headline();
 
 // exist rss link
-	if ( $FLAG_ADD_ERROR && ($ret1 == RSSC_CODE_LINK_ALREADY) )
+	if ( $FLAG_ADD_ERROR && (RSSC_CODE_LINK_ALREADY == $ret1) )
 	{
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -322,7 +322,7 @@ if ($op == 'addgo') {
 //		}
 
 		$ret2 = $rssc_handler->refresh_for_add_headline( $new_rssc_lid );
-		if ( $ret2 == RSSC_CODE_DB_ERROR )
+		if (RSSC_CODE_DB_ERROR == $ret2)
 		{
 			xoops_cp_header();
 			echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -338,20 +338,20 @@ if ($op == 'addgo') {
 // --- goto edit form ---
 	$code = 0;
 
-	if ( $ret1 == RSSC_CODE_DISCOVER_FAILED )
+	if (RSSC_CODE_DISCOVER_FAILED == $ret1)
 	{
 		$code = $ret1;
 	}
-	elseif ( $ret2 == RSSC_CODE_PARSE_FAILED )
+	elseif (RSSC_CODE_PARSE_FAILED == $ret2)
 	{
 		$code = $ret2;
 	}
-	elseif ( $ret2 == RSSC_CODE_REFRESH_ERROR )
+	elseif (RSSC_CODE_REFRESH_ERROR == $ret2)
 	{
 		$code = $ret2;
 	}
 
-	if ($code != 0)
+	if (0 != $code)
 	{
 		$url = 'index.php?op=edit&amp;code='.$code.'&amp;headline_id='.$headline_id;
 		redirect_header($url, 2, _AM_DBUPDATED);
@@ -360,7 +360,7 @@ if ($op == 'addgo') {
 // ---
 
 // --- show parse result ---
-	if ( $ret2 == RSSC_CODE_PARSE_MSG )
+	if (RSSC_CODE_PARSE_MSG == $ret2)
 	{
 		$msg  = _AM_DBUPDATED;
 		$msg .= '<br /><br />';
@@ -373,7 +373,7 @@ if ($op == 'addgo') {
     redirect_header('index.php', 2, _AM_DBUPDATED);
 }
 
-if ($op == 'edit') {
+if ('edit' == $op) {
 
     if ($headline_id <= 0) {
         xoops_cp_header();
@@ -476,17 +476,17 @@ if ($op == 'edit') {
 	{
 		$code = intval($_GET['code']);
 	
-		if ($code == RSSC_CODE_DISCOVER_FAILED)
+		if (RSSC_CODE_DISCOVER_FAILED == $code)
 		{
 			xoops_error( _RSSC_DISCOVER_FAILED );
 			echo "<br />\n";
 		}
-		elseif ($code == RSSC_CODE_PARSE_FAILED)
+		elseif (RSSC_CODE_PARSE_FAILED == $code)
 		{
 			xoops_error( _RSSC_PARSE_FAILED );
 			echo "<br />\n";
 		}
-		elseif ($code == RSSC_CODE_REFRESH_ERROR)
+		elseif (RSSC_CODE_REFRESH_ERROR == $code)
 		{
 			xoops_error( _RSSC_REFRESH_ERROR );
 			echo "<br />\n";
@@ -494,12 +494,12 @@ if ($op == 'edit') {
 	}
 
 	$ret = $rssc_handler->check_mod_form_headline($headline_rssc_lid, $url, $rssurl);
-	if ($ret == RSSC_CODE_LINK_NOT_EXIST)
+	if (RSSC_CODE_LINK_NOT_EXIST == $ret)
 	{
 		xoops_error( _RSSC_LINK_NOT_EXIST );
 		echo "<br />\n";
 	}
-	elseif ($ret == RSSC_CODE_LINK_ALREADY)
+	elseif (RSSC_CODE_LINK_ALREADY == $ret)
 	{
 		xoops_error( _RSSC_LINK_EXIST_MORE );
 		echo "<br />\n";
@@ -514,7 +514,7 @@ if ($op == 'edit') {
     exit();
 }
 
-if ($op == 'editgo') {
+if ('editgo' == $op) {
     $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
@@ -590,7 +590,7 @@ if ($op == 'editgo') {
 //            $renderer->updateCache();
 //        }
 
-	if ( $rssc_handler->get_feed_count( $headline_rssc_lid ) == 0 )
+	if (0 == $rssc_handler->get_feed_count($headline_rssc_lid ))
 	{
 		$rssc_handler->update_cache( $headline_rssc_lid );
 	}
@@ -599,7 +599,7 @@ if ($op == 'editgo') {
     redirect_header('index.php', 2, _AM_DBUPDATED);
 }
 
-if ($op == 'delete') {
+if ('delete' == $op) {
     if ($headline_id <= 0) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -624,7 +624,7 @@ if ($op == 'delete') {
     exit();
 }
 
-if ($op == 'deletego') {
+if ('deletego' == $op) {
     $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
