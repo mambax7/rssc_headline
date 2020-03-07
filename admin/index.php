@@ -24,7 +24,7 @@ $FLAG_DEL_RSSC  = false;	// delete RSSC link record
 
 $ENCODINGS = array('auto' => 'AUTO', 'utf-8' => 'UTF-8', 'iso-8859-1' => 'ISO-8859-1', 'us-ascii' => 'US-ASCII');
 
-$rssc_handler = & xoops_getmodulehandler('rssc', 'rssc_headline');
+$rssc_handler = & xoops_getModuleHandler('rssc', 'rssc_headline');
 // ---
 
 $op = 'list';
@@ -38,7 +38,7 @@ if (!empty($_GET['op']) && ($_GET['op'] == 'delete' || $_GET['op'] == 'edit')) {
 
 if ($op == 'list') {
     include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
-    $hlman =& xoops_getmodulehandler('headline');;
+    $hlman =& xoops_getModuleHandler('headline');;
     $headlines =& $hlman->getObjects();
     $count = count($headlines);
     xoops_cp_header();
@@ -168,7 +168,7 @@ if ($op == 'list') {
 }
 
 if ($op == 'update') {
-    $hlman =& xoops_getmodulehandler('headline');
+    $hlman =& xoops_getModuleHandler('headline');
     $i = 0;
     $msg = '';
     foreach ($_POST['headline_id'] as $id) {
@@ -251,7 +251,7 @@ if ($op == 'addgo') {
 	}
 // ---
 
-    $hlman =& xoops_getmodulehandler('headline');
+    $hlman =& xoops_getModuleHandler('headline');
     $hl =& $hlman->create();
     $hl->setVar('headline_name', $_POST['headline_name']);
 //    $hl->setVar('headline_url', $_POST['headline_url']);
@@ -382,7 +382,7 @@ if ($op == 'edit') {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getmodulehandler('headline');
+    $hlman =& xoops_getModuleHandler('headline');
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
@@ -523,7 +523,7 @@ if ($op == 'editgo') {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getmodulehandler('headline');;
+    $hlman =& xoops_getModuleHandler('headline');;
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
@@ -607,7 +607,7 @@ if ($op == 'delete') {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getmodulehandler('headline');;
+    $hlman =& xoops_getModuleHandler('headline');;
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
@@ -633,7 +633,7 @@ if ($op == 'deletego') {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getmodulehandler('headline');;
+    $hlman =& xoops_getModuleHandler('headline');;
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();

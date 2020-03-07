@@ -59,7 +59,7 @@ class rssc_headline_Renderer
 		$this->_tpl = new XoopsTpl();
 
 // --- define rssc handler ---
-		$this->_rssc_handler = & xoops_getmodulehandler('rssc', 'rssc_headline');
+		$this->_rssc_handler = & xoops_getModuleHandler('rssc', 'rssc_headline');
 		$this->_rssc_lid     = $this->_hl->getVar('headline_rssc_lid');
 // ---
 	}
@@ -78,7 +78,7 @@ class rssc_headline_Renderer
 		fclose ($fp);
 		$this->_hl->setVar('headline_xml', $this->convertToUtf8($data));
 		$this->_hl->setVar('headline_updated', time());
-		$headline_handler =& xoops_getmodulehandler('headline', 'rssc_headline');
+		$headline_handler =& xoops_getModuleHandler('headline', 'rssc_headline');
 		return $headline_handler->insert($this->_hl);
 	}
 // ---

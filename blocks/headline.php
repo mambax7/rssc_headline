@@ -19,7 +19,7 @@ function b_rssc_headline_show($options)
 {
 	global $xoopsConfig;
 	$block = array();
-	$hlman =& xoops_getmodulehandler('headline', 'rssc_headline');
+	$hlman =& xoops_getModuleHandler('headline', 'rssc_headline');
 	$headlines =& $hlman->getObjects(new Criteria('headline_asblock', 1));
 	$count = count($headlines);
 	for ($i = 0; $i < $count; $i++) {
