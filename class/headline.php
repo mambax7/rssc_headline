@@ -103,7 +103,7 @@ class rssc_headlineHeadlineHandler
         return false;
     }
 
-    function insert(&$headline)
+    function insert($headline)
     {
         if ( strtolower(get_class($headline)) != 'rssc_headline_headline') {
             return false;
@@ -136,7 +136,7 @@ class rssc_headlineHeadlineHandler
         return $headline_id;
     }
 
-    function delete(&$headline)
+    function delete($headline)
     {
         if ( strtolower(get_class($headline)) != 'rssc_headline_headline') {
             return false;

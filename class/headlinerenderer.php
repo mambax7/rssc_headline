@@ -280,7 +280,7 @@ class rssc_headline_Renderer
 	// abstract
 	// overide this method in /language/your_language/headlinerenderer.php
 	// return string
-	function &convertToUtf8(&$xmlfile)
+	function &convertToUtf8($xmlfile)
 	{
 		return $xmlfile;
 	}
