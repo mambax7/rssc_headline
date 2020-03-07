@@ -23,7 +23,7 @@
 class rssc_headline_Headline extends XoopsObject
 {
 
-    public function rssc_headline_Headline()
+    public function __construct()
     {
         $this->XoopsObject();
         $this->initVar('headline_id', XOBJ_DTYPE_INT, null, false);
@@ -65,7 +65,7 @@ class rssc_headlineHeadlineHandler
 {
     public $db;
 
-    public function rssc_headlineHeadlineHandler(&$db)
+    public function __construct(&$db)
     {
         $this->db =& $db;
     }

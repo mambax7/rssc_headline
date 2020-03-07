@@ -54,7 +54,7 @@ class rssc_headline_Renderer
 
     // ---
 
-    public function rssc_headline_Renderer(&$headline)
+    public function __construct(&$headline)
     {
         $this->_hl  =& $headline;
         $this->_tpl = new XoopsTpl();

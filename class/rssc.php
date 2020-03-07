@@ -58,7 +58,7 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function rssc_headlineRsscHandler()
+    public function __construct()
     {
         $this->_rssc_refresh_handler  =& rssc_get_handler('refresh', RSSC_HEADLINE_RSSC_DIRNAME);
         $this->_rssc_view_handler     =& rssc_get_handler('view', RSSC_HEADLINE_RSSC_DIRNAME);
