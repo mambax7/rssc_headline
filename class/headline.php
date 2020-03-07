@@ -23,16 +23,16 @@
 class rssc_headline_Headline extends XoopsObject
 {
 
-    function rssc_headline_Headline()
+    public function rssc_headline_Headline()
     {
         $this->XoopsObject();
         $this->initVar('headline_id', XOBJ_DTYPE_INT, null, false);
         $this->initVar('headline_name', XOBJ_DTYPE_TXTBOX, null, true, 255);
         $this->initVar('headline_url', XOBJ_DTYPE_TXTBOX, null, true, 255);
 
-// --- rssurl ---
+        // --- rssurl ---
         $this->initVar('headline_rssurl', XOBJ_DTYPE_TXTBOX, null, false, 255);
-// ---
+        // ---
 
         $this->initVar('headline_cachetime', XOBJ_DTYPE_INT, 600, false);
         $this->initVar('headline_asblock', XOBJ_DTYPE_INT, 0, false);
@@ -47,12 +47,12 @@ class rssc_headline_Headline extends XoopsObject
         $this->initVar('headline_xml', XOBJ_DTYPE_SOURCE, null, false);
         $this->initVar('headline_updated', XOBJ_DTYPE_INT, 0, false);
 
-// --- add field headline_rssc_lid ---
+        // --- add field headline_rssc_lid ---
         $this->initVar('headline_rssc_lid', XOBJ_DTYPE_INT, 0, false);
-// ---
+        // ---
     }
 
-    function cacheExpired()
+    public function cacheExpired()
     {
         if (time() - $this->getVar('headline_updated') > $this->getVar('headline_cachetime')) {
             return true;
@@ -65,7 +65,7 @@ class rssc_headlineHeadlineHandler
 {
     var $db;
 
-    function rssc_headlineHeadlineHandler(&$db)
+    public function rssc_headlineHeadlineHandler(&$db)
     {
         $this->db =& $db;
     }
@@ -79,17 +79,17 @@ class rssc_headlineHeadlineHandler
         return $instance;
     }
 
-    function &create()
+    public function &create()
     {
         $ret = new rssc_headline_Headline();
         return $ret;
     }
 
-    function &get($id)
+    public function &get($id)
     {
         $id = intval($id);
         if ($id > 0) {
-            $sql = 'SELECT * FROM '.$this->db->prefix('rssc_headline').' WHERE headline_id='.$id;
+            $sql = 'SELECT * FROM ' . $this->db->prefix('rssc_headline') . ' WHERE headline_id=' . $id;
             if (!$result = $this->db->query($sql)) {
                 return false;
             }
@@ -103,9 +103,9 @@ class rssc_headlineHeadlineHandler
         return false;
     }
 
-    function insert($headline)
+    public function insert($headline)
     {
-        if ( strtolower(get_class($headline)) != 'rssc_headline_headline') {
+        if (strtolower(get_class($headline)) != 'rssc_headline_headline') {
             return false;
         }
         if (!$headline->cleanVars()) {
@@ -117,14 +117,82 @@ class rssc_headlineHeadlineHandler
         if (empty($headline_id)) {
             $headline_id = $this->db->genId('rssc_headline_headline_id_seq');
 
-// add field headline_rssc_lid
-            $sql = 'INSERT INTO '.$this->db->prefix('rssc_headline').' (headline_id, headline_name, headline_url, headline_rssurl, headline_encoding, headline_cachetime, headline_asblock, headline_display, headline_weight, headline_mainimg, headline_mainfull, headline_mainmax, headline_blockimg, headline_blockmax, headline_xml, headline_updated, headline_rssc_lid) VALUES ('.$headline_id.', '.$this->db->quoteString($headline_name).', '.$this->db->quoteString($headline_url).', '.$this->db->quoteString($headline_rssurl).', '.$this->db->quoteString($headline_encoding).', '.$headline_cachetime.', '.$headline_asblock.', '.$headline_display.', '.$headline_weight.', '.$headline_mainimg.', '.$headline_mainfull.', '.$headline_mainmax.', '.$headline_blockimg.', '.$headline_blockmax.', '.$this->db->quoteString($headline_xml).', '.time().', '.$headline_rssc_lid.')';
-
+            // add field headline_rssc_lid
+            $sql = 'INSERT INTO '
+                   . $this->db->prefix('rssc_headline')
+                   . ' (headline_id, headline_name, headline_url, headline_rssurl, headline_encoding, headline_cachetime, headline_asblock, headline_display, headline_weight, headline_mainimg, headline_mainfull, headline_mainmax, headline_blockimg, headline_blockmax, headline_xml, headline_updated, headline_rssc_lid) VALUES ('
+                   . $headline_id
+                   . ', '
+                   . $this->db->quoteString($headline_name)
+                   . ', '
+                   . $this->db->quoteString($headline_url)
+                   . ', '
+                   . $this->db->quoteString($headline_rssurl)
+                   . ', '
+                   . $this->db->quoteString($headline_encoding)
+                   . ', '
+                   . $headline_cachetime
+                   . ', '
+                   . $headline_asblock
+                   . ', '
+                   . $headline_display
+                   . ', '
+                   . $headline_weight
+                   . ', '
+                   . $headline_mainimg
+                   . ', '
+                   . $headline_mainfull
+                   . ', '
+                   . $headline_mainmax
+                   . ', '
+                   . $headline_blockimg
+                   . ', '
+                   . $headline_blockmax
+                   . ', '
+                   . $this->db->quoteString($headline_xml)
+                   . ', '
+                   . time()
+                   . ', '
+                   . $headline_rssc_lid
+                   . ')';
         } else {
-
-// add field headline_rssc_lid
-            $sql = 'UPDATE '.$this->db->prefix('rssc_headline').' SET headline_name='.$this->db->quoteString($headline_name).', headline_url='.$this->db->quoteString($headline_url).', headline_rssurl='.$this->db->quoteString($headline_rssurl).', headline_encoding='.$this->db->quoteString($headline_encoding).', headline_cachetime='.$headline_cachetime.', headline_asblock='.$headline_asblock.', headline_display='.$headline_display.', headline_weight='.$headline_weight.', headline_mainimg='.$headline_mainimg.', headline_mainfull='.$headline_mainfull.', headline_mainmax='.$headline_mainmax.', headline_blockimg='.$headline_blockimg.', headline_blockmax='.$headline_blockmax.', headline_xml = '.$this->db->quoteString($headline_xml).', headline_updated='.$headline_updated.', headline_rssc_lid='.$headline_rssc_lid.' WHERE headline_id='.$headline_id;
-
+            // add field headline_rssc_lid
+            $sql = 'UPDATE '
+                   . $this->db->prefix('rssc_headline')
+                   . ' SET headline_name='
+                   . $this->db->quoteString($headline_name)
+                   . ', headline_url='
+                   . $this->db->quoteString($headline_url)
+                   . ', headline_rssurl='
+                   . $this->db->quoteString($headline_rssurl)
+                   . ', headline_encoding='
+                   . $this->db->quoteString($headline_encoding)
+                   . ', headline_cachetime='
+                   . $headline_cachetime
+                   . ', headline_asblock='
+                   . $headline_asblock
+                   . ', headline_display='
+                   . $headline_display
+                   . ', headline_weight='
+                   . $headline_weight
+                   . ', headline_mainimg='
+                   . $headline_mainimg
+                   . ', headline_mainfull='
+                   . $headline_mainfull
+                   . ', headline_mainmax='
+                   . $headline_mainmax
+                   . ', headline_blockimg='
+                   . $headline_blockimg
+                   . ', headline_blockmax='
+                   . $headline_blockmax
+                   . ', headline_xml = '
+                   . $this->db->quoteString($headline_xml)
+                   . ', headline_updated='
+                   . $headline_updated
+                   . ', headline_rssc_lid='
+                   . $headline_rssc_lid
+                   . ' WHERE headline_id='
+                   . $headline_id;
         }
         if (!$result = $this->db->queryF($sql)) {
             return false;
@@ -136,9 +204,9 @@ class rssc_headlineHeadlineHandler
         return $headline_id;
     }
 
-    function delete($headline)
+    public function delete($headline)
     {
-        if ( strtolower(get_class($headline)) != 'rssc_headline_headline') {
+        if (strtolower(get_class($headline)) != 'rssc_headline_headline') {
             return false;
         }
         $sql = sprintf("DELETE FROM %s WHERE headline_id = %u", $this->db->prefix('rssc_headline'), $headline->getVar('headline_id'));
@@ -148,14 +216,14 @@ class rssc_headlineHeadlineHandler
         return true;
     }
 
-    function &getObjects($criteria = null)
+    public function &getObjects($criteria = null)
     {
-        $ret = array();
+        $ret   = [];
         $limit = $start = 0;
-        $sql = 'SELECT * FROM '.$this->db->prefix('rssc_headline');
+        $sql   = 'SELECT * FROM ' . $this->db->prefix('rssc_headline');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
-            $sql .= ' '.$criteria->renderWhere();
-            $sql .= ' ORDER BY headline_weight '.$criteria->getOrder();
+            $sql   .= ' ' . $criteria->renderWhere();
+            $sql   .= ' ORDER BY headline_weight ' . $criteria->getOrder();
             $limit = $criteria->getLimit();
             $start = $criteria->getStart();
         }
@@ -172,11 +240,11 @@ class rssc_headlineHeadlineHandler
         return $ret;
     }
 
-    function getCount($criteria = null)
+    public function getCount($criteria = null)
     {
-        $sql = 'SELECT COUNT(*) FROM '.$this->db->prefix('rssc_headline');
+        $sql = 'SELECT COUNT(*) FROM ' . $this->db->prefix('rssc_headline');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
-            $sql .= ' '.$criteria->renderWhere();
+            $sql .= ' ' . $criteria->renderWhere();
         }
         if (!$result =& $this->db->query($sql)) {
             return 0;
@@ -185,4 +253,5 @@ class rssc_headlineHeadlineHandler
         return $count;
     }
 }
+
 ?>
