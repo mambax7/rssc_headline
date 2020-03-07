@@ -18,7 +18,7 @@ include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
 function b_rssc_headline_show($options)
 {
 	global $xoopsConfig;
-	$block = array();
+	$block = [];
 	$hlman =& xoops_getModuleHandler('headline', 'rssc_headline');
 	$headlines =& $hlman->getObjects(new Criteria('headline_asblock', 1));
 	$count = count($headlines);

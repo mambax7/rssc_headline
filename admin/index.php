@@ -22,7 +22,7 @@ include XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
 $FLAG_ADD_ERROR = false;	// show to check exist link
 $FLAG_DEL_RSSC  = false;	// delete RSSC link record
 
-$ENCODINGS = array('auto' => 'AUTO', 'utf-8' => 'UTF-8', 'iso-8859-1' => 'ISO-8859-1', 'us-ascii' => 'US-ASCII');
+$ENCODINGS = ['auto' => 'AUTO', 'utf-8' => 'UTF-8', 'iso-8859-1' => 'ISO-8859-1', 'us-ascii' => 'US-ASCII'];
 
 $rssc_handler = & xoops_getModuleHandler('rssc', 'rssc_headline');
 // ---
@@ -55,7 +55,7 @@ if ($op == 'list') {
 
         echo '<tr><td>'.$headlines[$i]->getVar('headline_name').'</td>
         <td><select name="headline_cachetime[]">';
-        $cachetime = array('3600' => sprintf(_HOUR, 1), '18000' => sprintf(_HOURS, 5), '86400' => sprintf(_DAY, 1), '259200' => sprintf(_DAYS, 3), '604800' => sprintf(_WEEK, 1), '2592000' => sprintf(_MONTH, 1));
+        $cachetime = ['3600' => sprintf(_HOUR, 1), '18000' => sprintf(_HOURS, 5), '86400' => sprintf(_DAY, 1), '259200' => sprintf(_DAYS, 3), '604800' => sprintf(_WEEK, 1), '2592000' => sprintf(_MONTH, 1)];
         foreach ($cachetime as $value => $name) {
            echo '<option value="'.$value.'"';
 
@@ -140,7 +140,7 @@ if ($op == 'list') {
 
     $form->addElement($enc_sel);
     $cache_sel = new XoopsFormSelect(_AM_CACHETIME, 'headline_cachetime', 86400);
-    $cache_sel->addOptionArray(array('3600' => _HOUR, '18000' => sprintf(_HOURS, 5), '86400' => _DAY, '259200' => sprintf(_DAYS, 3), '604800' => _WEEK, '2592000' => _MONTH));
+    $cache_sel->addOptionArray(['3600' => _HOUR, '18000' => sprintf(_HOURS, 5), '86400' => _DAY, '259200' => sprintf(_DAYS, 3), '604800' => _WEEK, '2592000' => _MONTH]);
     $form->addElement($cache_sel);
 
     $form->insertBreak(_AM_MAINSETT);
@@ -148,14 +148,14 @@ if ($op == 'list') {
     $form->addElement(new XoopsFormRadioYN(_AM_DISPIMG, 'headline_mainimg', 0, _YES, _NO));
     $form->addElement(new XoopsFormRadioYN(_AM_DISPFULL, 'headline_mainfull', 0, _YES, _NO));
     $mmax_sel = new XoopsFormSelect(_AM_DISPMAX, 'headline_mainmax', 10);
-    $mmax_sel->addOptionArray(array('1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30));
+    $mmax_sel->addOptionArray(['1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30]);
     $form->addElement($mmax_sel);
 
     $form->insertBreak(_AM_BLOCKSETT);
     $form->addElement(new XoopsFormRadioYN(_AM_ASBLOCK, 'headline_asblock', 1, _YES, _NO));
     $form->addElement(new XoopsFormRadioYN(_AM_DISPIMG, 'headline_blockimg', 0, _YES, _NO));
     $bmax_sel = new XoopsFormSelect(_AM_DISPMAX, 'headline_blockmax', 5);
-    $bmax_sel->addOptionArray(array('1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30));
+    $bmax_sel->addOptionArray(['1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30]);
     $form->addElement($bmax_sel);
 
 
@@ -447,7 +447,7 @@ if ($op == 'edit') {
 	$cache_sel = new XoopsFormSelect(_AM_CACHETIME, 'headline_cachetime', $cachetime);
 //---
 
-    $cache_sel->addOptionArray(array('3600' => _HOUR, '18000' => sprintf(_HOURS, 5), '86400' => _DAY, '259200' => sprintf(_DAYS, 3), '604800' => _WEEK, '2592000' => _MONTH));
+    $cache_sel->addOptionArray(['3600' => _HOUR, '18000' => sprintf(_HOURS, 5), '86400' => _DAY, '259200' => sprintf(_DAYS, 3), '604800' => _WEEK, '2592000' => _MONTH]);
     $form->addElement($cache_sel);
 
     $form->insertBreak(_AM_MAINSETT);
@@ -455,14 +455,14 @@ if ($op == 'edit') {
     $form->addElement(new XoopsFormRadioYN(_AM_DISPIMG, 'headline_mainimg', $hl->getVar('headline_mainimg'), _YES, _NO));
     $form->addElement(new XoopsFormRadioYN(_AM_DISPFULL, 'headline_mainfull', $hl->getVar('headline_mainfull'), _YES, _NO));
     $mmax_sel = new XoopsFormSelect(_AM_DISPMAX, 'headline_mainmax', $hl->getVar('headline_mainmax'));
-    $mmax_sel->addOptionArray(array('1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30));
+    $mmax_sel->addOptionArray(['1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30]);
     $form->addElement($mmax_sel);
 
     $form->insertBreak(_AM_BLOCKSETT);
     $form->addElement(new XoopsFormRadioYN(_AM_ASBLOCK, 'headline_asblock', $hl->getVar('headline_asblock'), _YES, _NO));
     $form->addElement(new XoopsFormRadioYN(_AM_DISPIMG, 'headline_blockimg', $hl->getVar('headline_blockimg'), _YES, _NO));
     $bmax_sel = new XoopsFormSelect(_AM_DISPMAX, 'headline_blockmax', $hl->getVar('headline_blockmax'));
-    $bmax_sel->addOptionArray(array('1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30));
+    $bmax_sel->addOptionArray(['1' => 1, '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30]);
     $form->addElement($bmax_sel);
     $form->insertBreak();
     $form->addElement(new XoopsFormHidden('headline_id', $hl->getVar('headline_id')));
@@ -619,7 +619,7 @@ if ($op == 'delete') {
     xoops_cp_header();
     $name = $hl->getVar('headline_name');
     echo "<h4>"._AM_HEADLINES."</h4>";
-    xoops_confirm(array('op' => 'deletego', 'headline_id' => $hl->getVar('headline_id')), 'index.php', sprintf(_AM_WANTDEL, $name));
+    xoops_confirm(['op' => 'deletego', 'headline_id' => $hl->getVar('headline_id')], 'index.php', sprintf(_AM_WANTDEL, $name));
     xoops_cp_footer();
     exit();
 }

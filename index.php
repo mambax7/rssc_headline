@@ -23,7 +23,7 @@ include XOOPS_ROOT_PATH.'/header.php';
 $headlines =& $hlman->getObjects(new Criteria('headline_display', 1));
 $count = count($headlines);
 for ($i = 0; $i < $count; $i++) {
-	$xoopsTpl->append('feed_sites', array('id' => $headlines[$i]->getVar('headline_id'), 'name' => $headlines[$i]->getVar('headline_name')));
+	$xoopsTpl->append('feed_sites', ['id' => $headlines[$i]->getVar('headline_id'), 'name' => $headlines[$i]->getVar('headline_name')]);
 }
 $xoopsTpl->assign('lang_headlines', _RSSC_HEADLINE_HEADLINES);
 if ($hlid == 0) {
