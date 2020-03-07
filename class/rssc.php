@@ -63,7 +63,7 @@ class rssc_headlineRsscHandler extends rssc_error
         $this->_rssc_refresh_handler  =& rssc_get_handler('refresh', RSSC_HEADLINE_RSSC_DIRNAME);
         $this->_rssc_view_handler     =& rssc_get_handler('view', RSSC_HEADLINE_RSSC_DIRNAME);
         $this->_rssc_link_xml_handler =& rssc_get_handler('link_xml', RSSC_HEADLINE_RSSC_DIRNAME);
-        $this->_rssc_utility          =& rssc_xml_utility::getInstance();
+        $this->_rssc_utility = rssc_xml_utility::getInstance();
 
         global $xoopsModule;
         if (is_object($xoopsModule)) {

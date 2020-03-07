@@ -24,7 +24,7 @@ $FLAG_DEL_RSSC  = false;	// delete RSSC link record
 
 $ENCODINGS = ['auto' => 'AUTO', 'utf-8' => 'UTF-8', 'iso-8859-1' => 'ISO-8859-1', 'us-ascii' => 'US-ASCII'];
 
-$rssc_handler = & xoops_getModuleHandler('rssc', 'rssc_headline');
+$rssc_handler = xoops_getModuleHandler('rssc', 'rssc_headline');
 // ---
 
 $op = 'list';
@@ -38,7 +38,7 @@ if (!empty($_GET['op']) && ('delete' == $_GET['op'] || 'edit' == $_GET['op'])) {
 
 if ('list' == $op) {
     include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
-    $hlman =& xoops_getModuleHandler('headline');;
+    $hlman = xoops_getModuleHandler('headline');;
     $headlines =& $hlman->getObjects();
     $count = count($headlines);
     xoops_cp_header();
@@ -168,11 +168,11 @@ if ('list' == $op) {
 }
 
 if ('update' == $op) {
-    $hlman =& xoops_getModuleHandler('headline');
-    $i = 0;
+    $hlman = xoops_getModuleHandler('headline');
+    $i     = 0;
     $msg = '';
     foreach ($_POST['headline_id'] as $id) {
-        $hl =& $hlman->get($id);
+        $hl = $hlman->get($id);
         if (!is_object($hl)) {
             $i++;
             continue;
@@ -251,8 +251,8 @@ if ('addgo' == $op) {
 	}
 // ---
 
-    $hlman =& xoops_getModuleHandler('headline');
-    $hl =& $hlman->create();
+    $hlman = xoops_getModuleHandler('headline');
+    $hl    = $hlman->create();
     $hl->setVar('headline_name', $_POST['headline_name']);
 //    $hl->setVar('headline_url', $_POST['headline_url']);
 //    $hl->setVar('headline_rssurl', $_POST['headline_rssurl']);
@@ -300,7 +300,7 @@ if ('addgo' == $op) {
 // ---
 
 // --- insert lid to headline ---
-	$hl =& $hlman->get($headline_id);
+	$hl = $hlman->get($headline_id);
 	$hl->setVar('headline_rssc_lid', $new_rssc_lid);
 	if ( !$hlman->insert($hl) )
 	{
@@ -382,8 +382,8 @@ if ('edit' == $op) {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getModuleHandler('headline');
-    $hl =& $hlman->get($headline_id);
+    $hlman = xoops_getModuleHandler('headline');
+    $hl    = $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -523,8 +523,8 @@ if ('editgo' == $op) {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getModuleHandler('headline');;
-    $hl =& $hlman->get($headline_id);
+    $hlman = xoops_getModuleHandler('headline');;
+    $hl = $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -607,8 +607,8 @@ if ('delete' == $op) {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getModuleHandler('headline');;
-    $hl =& $hlman->get($headline_id);
+    $hlman = xoops_getModuleHandler('headline');;
+    $hl = $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -633,8 +633,8 @@ if ('deletego' == $op) {
         xoops_cp_footer();
         exit();
     }
-    $hlman =& xoops_getModuleHandler('headline');;
-    $hl =& $hlman->get($headline_id);
+    $hlman = xoops_getModuleHandler('headline');;
+    $hl = $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';

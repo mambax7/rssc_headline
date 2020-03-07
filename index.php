@@ -16,7 +16,7 @@
 
 include '../../mainfile.php';
 include 'include/functions.php';
-$hlman =& xoops_getModuleHandler('headline');;
+$hlman = xoops_getModuleHandler('headline');;
 $hlid = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $xoopsOption['template_main'] = 'rssc_headline_index.html';
 include XOOPS_ROOT_PATH.'/header.php';
@@ -33,7 +33,7 @@ if (0 == $hlid) {
 	}
 }
 if ($hlid > 0) {
-	$headline =& $hlman->get($hlid);
+	$headline = $hlman->get($hlid);
 	if (is_object($headline)) {
 		$renderer =& rssc_headline_getrenderer($headline);
 		if (!$renderer->renderFeed()) {

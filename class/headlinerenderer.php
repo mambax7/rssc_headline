@@ -60,7 +60,7 @@ class rssc_headline_Renderer
         $this->_tpl = new XoopsTpl();
 
         // --- define rssc handler ---
-        $this->_rssc_handler = &xoops_getModuleHandler('rssc', 'rssc_headline');
+        $this->_rssc_handler = xoops_getModuleHandler('rssc', 'rssc_headline');
         $this->_rssc_lid     = $this->_hl->getVar('headline_rssc_lid');
         // ---
     }
@@ -79,7 +79,7 @@ class rssc_headline_Renderer
         fclose($fp);
         $this->_hl->setVar('headline_xml', $this->convertToUtf8($data));
         $this->_hl->setVar('headline_updated', time());
-        $headline_handler =& xoops_getModuleHandler('headline', 'rssc_headline');
+        $headline_handler = xoops_getModuleHandler('headline', 'rssc_headline');
         return $headline_handler->insert($this->_hl);
     }
 
@@ -157,7 +157,7 @@ class rssc_headline_Renderer
                 'lang_more'        => _MORE,
             ]
         );
-        $this->_feed =& $this->_tpl->fetch('db:rssc_headline_feed.html');
+        $this->_feed = $this->_tpl->fetch('db:rssc_headline_feed.html');
         return true;
     }
 
@@ -216,7 +216,7 @@ class rssc_headline_Renderer
             $this->_tpl->append_by_ref('items', $items[$i]);
         }
         $this->_tpl->assign(['site_name' => $this->_hl->getVar('headline_name'), 'site_url' => $this->_hl->getVar('headline_url'), 'site_id' => $this->_hl->getVar('headline_id')]);
-        $this->_block =& $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssc_headline/blocks/headline_block.html');
+        $this->_block = $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssc_headline/blocks/headline_block.html');
         return true;
     }
 

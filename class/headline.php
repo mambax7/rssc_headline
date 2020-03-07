@@ -85,7 +85,7 @@ class rssc_headlineHeadlineHandler
         return $ret;
     }
 
-    public function &get($id)
+    public function get($id)
     {
         $id = (int)$id;
         if ($id > 0) {
