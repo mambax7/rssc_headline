@@ -70,12 +70,13 @@ class rssc_headlineHeadlineHandler
         $this->db = $db;
     }
 
-    public static function &getInstance($db)
+    public static function getInstance($db = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_headlineHeadlineHandler($db);
+        if (null === $instance) {
+            $instance = new static($db);
         }
+
         return $instance;
     }
 
@@ -246,7 +247,7 @@ class rssc_headlineHeadlineHandler
         if (isset($criteria) && $criteria instanceof \CriteriaElement) {
             $sql .= ' ' . $criteria->renderWhere();
         }
-        if (!$result =& $this->db->query($sql)) {
+        if (!$result = $this->db->query($sql)) {
             return 0;
         }
         list($count) = $this->db->fetchRow($result);
