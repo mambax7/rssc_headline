@@ -16,14 +16,14 @@
 // Module Info
 
 // The name of this module
-define("_MI_RSSC_HEADLINE_NAME","RSSC Headline");
+define('_MI_RSSC_HEADLINE_NAME', 'RSSC Headline');
 
 // A brief description of this module
-define("_MI_RSSC_HEADLINE_DESC","Displayes RSS/XML Newsfeed from other sites");
+define('_MI_RSSC_HEADLINE_DESC', 'Displayes RSS/XML Newsfeed from other sites');
 
 // Names of blocks for this module (Not all module has blocks)
-define("_MI_RSSC_HEADLINE_BNAME","RSSC Headlines");
+define('_MI_RSSC_HEADLINE_BNAME', 'RSSC Headlines');
 
 // Names of admin menu items
-define("_MI_RSSC_HEADLINE_ADMENU1","RSSC List Headlines");
+define('_MI_RSSC_HEADLINE_ADMENU1', 'RSSC List Headlines');
 ?>

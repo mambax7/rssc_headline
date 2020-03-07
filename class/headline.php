@@ -209,7 +209,7 @@ class rssc_headlineHeadlineHandler
         if (strtolower(get_class($headline)) != 'rssc_headline_headline') {
             return false;
         }
-        $sql = sprintf("DELETE FROM %s WHERE headline_id = %u", $this->db->prefix('rssc_headline'), $headline->getVar('headline_id'));
+        $sql = sprintf('DELETE FROM %s WHERE headline_id = %u', $this->db->prefix('rssc_headline'), $headline->getVar('headline_id'));
         if (!$result = $this->db->query($sql)) {
             return false;
         }

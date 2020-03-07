@@ -42,7 +42,7 @@ if ($op == 'list') {
     $headlines =& $hlman->getObjects();
     $count = count($headlines);
     xoops_cp_header();
-    echo "<h4>"._AM_HEADLINES."</h4>";
+    echo '<h4>' . _AM_HEADLINES . '</h4>';
     echo '<form name="rssc_headline_form" action="index.php" method="post"><table><tr><td>'._AM_SITENAME.'</td><td>'._AM_CACHETIME.'</td><td>'._AM_ENCODING.'</td><td>'._AM_DISPLAY.'</td><td>'._AM_ASBLOCK.'</td><td>'._AM_ORDER.'</td><td>&nbsp;</td></tr>';
     for ($i = 0; $i < $count; $i++) {
 
@@ -224,7 +224,7 @@ if ($op == 'update') {
 
     if ($msg != '') {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
         xoops_cp_footer();
         exit();
@@ -242,7 +242,7 @@ if ($op == 'addgo') {
 	if ( $FLAG_ADD_ERROR && ($ret1 == RSSC_CODE_LINK_ALREADY) )
 	{
 		xoops_cp_header();
-		echo "<h4>"._AM_HEADLINES."</h4>";
+		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error( _RSSC_LINK_ALREADY );
 		echo "<br />\n";
 		echo $rssc_handler->getErrors('s');
@@ -278,7 +278,7 @@ if ($op == 'addgo') {
         $msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
         $msg .= '<br />'.$hl->getErrors();
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
         xoops_cp_footer();
         exit();
@@ -289,7 +289,7 @@ if ($op == 'addgo') {
 	if ( !$new_rssc_lid )
 	{
 		xoops_cp_header();
-		echo "<h4>"._AM_HEADLINES."</h4>";
+		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error( _RSSC_DB_ERROR );
 		echo $hl->getVar('headline_name');
 		echo "<br />\n";
@@ -307,7 +307,7 @@ if ($op == 'addgo') {
 		$msg = sprintf( _AM_FAILUPDATE, $hl->getVar('headline_name') );
 		$msg .= '<br />'.$hl->getErrors();
 		xoops_cp_header();
-		echo "<h4>"._AM_HEADLINES."</h4>";
+		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);
 		xoops_cp_footer();
 		exit();
@@ -325,7 +325,7 @@ if ($op == 'addgo') {
 		if ( $ret2 == RSSC_CODE_DB_ERROR )
 		{
 			xoops_cp_header();
-			echo "<h4>"._AM_HEADLINES."</h4>";
+			echo '<h4>' . _AM_HEADLINES . '</h4>';
 			xoops_error( _RSSC_DB_ERROR );
 			echo $hl->getVar('headline_name');
 			echo "<br />\n";
@@ -363,7 +363,7 @@ if ($op == 'addgo') {
 	if ( $ret2 == RSSC_CODE_PARSE_MSG )
 	{
 		$msg  = _AM_DBUPDATED;
-		$msg .= "<br /><br />";
+		$msg .= '<br /><br />';
 		$msg .= $rssc_handler->get_parse_result();
 		redirect_header('index.php', 5, $msg);
 		exit();
@@ -377,7 +377,7 @@ if ($op == 'edit') {
 
     if ($headline_id <= 0) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_INVALIDID);
         xoops_cp_footer();
         exit();
@@ -386,7 +386,7 @@ if ($op == 'edit') {
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_OBJECTNG);
         xoops_cp_footer();
         exit();
@@ -469,7 +469,7 @@ if ($op == 'edit') {
     $form->addElement(new XoopsFormHidden('op', 'editgo'));
     $form->addElement(new XoopsFormButton('', 'headline_submit', _SUBMIT, 'submit'));
     xoops_cp_header();
-    echo "<h4>"._AM_HEADLINES."</h4><br />";
+    echo '<h4>' . _AM_HEADLINES . '</h4><br />';
 
 // --- warning message ---
 	if ( isset($_GET['code']) )
@@ -518,7 +518,7 @@ if ($op == 'editgo') {
     $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_INVALIDID);
         xoops_cp_footer();
         exit();
@@ -527,7 +527,7 @@ if ($op == 'editgo') {
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_OBJECTNG);
         xoops_cp_footer();
         exit();
@@ -565,7 +565,7 @@ if ($op == 'editgo') {
         $msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
         $msg .= '<br />'.$hl->getHtmlErrors();
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
         xoops_cp_footer();
         exit();
@@ -577,7 +577,7 @@ if ($op == 'editgo') {
 		$msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
 		$msg .= '<br />'.$rssc_handler->getErrors('s');
 		xoops_cp_header();
-		echo "<h4>"._AM_HEADLINES."</h4>";
+		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);
 		xoops_cp_footer();
 		exit();
@@ -602,7 +602,7 @@ if ($op == 'editgo') {
 if ($op == 'delete') {
     if ($headline_id <= 0) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_INVALIDID);
         xoops_cp_footer();
         exit();
@@ -611,14 +611,14 @@ if ($op == 'delete') {
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_OBJECTNG);
         xoops_cp_footer();
         exit();
     }
     xoops_cp_header();
     $name = $hl->getVar('headline_name');
-    echo "<h4>"._AM_HEADLINES."</h4>";
+    echo '<h4>' . _AM_HEADLINES . '</h4>';
     xoops_confirm(['op' => 'deletego', 'headline_id' => $hl->getVar('headline_id')], 'index.php', sprintf(_AM_WANTDEL, $name));
     xoops_cp_footer();
     exit();
@@ -628,7 +628,7 @@ if ($op == 'deletego') {
     $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_INVALIDID);
         xoops_cp_footer();
         exit();
@@ -637,7 +637,7 @@ if ($op == 'deletego') {
     $hl =& $hlman->get($headline_id);
     if (!is_object($hl)) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(_AM_OBJECTNG);
         xoops_cp_footer();
         exit();
@@ -649,7 +649,7 @@ if ($op == 'deletego') {
 
     if (!$hlman->delete($hl)) {
         xoops_cp_header();
-        echo "<h4>"._AM_HEADLINES."</h4>";
+        echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error(sprintf(_AM_FAILDELETE, $hl->getVar('headline_name')));
         xoops_cp_footer();
         exit();
@@ -661,7 +661,7 @@ if ($op == 'deletego') {
 		$msg = sprintf(_AM_FAILDELETE, $hl->getVar('headline_name'));
 		$msg .= '<br />'.$rssc_handler->getErrors('s');
 		xoops_cp_header();
-		echo "<h4>"._AM_HEADLINES."</h4>";
+		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);
 		xoops_cp_footer();
 		exit();
