@@ -9,45 +9,45 @@
 //=========================================================
 // RSSC HeadLine
 // 2006-07-02 K.OHWADA
-// ͭ����������
+// 有朋自遠方来
 //=========================================================
 // based on xoopsHeadline
 // Id: admin.php,v 1.4 2005/08/03 12:40:01 onokazu Exp
 //=========================================================
 
 //%%%%%%        Admin Module Name  Headlines         %%%%%
-define('_AM_DBUPDATED','�ǡ����١����򹹿����ޤ���!');
-define('_AM_HEADLINES','�إåɥ饤������');
-define('_AM_HLMAIN','�إåɥ饤��ᥤ��');
-define('_AM_SITENAME','������̾');
-define('_AM_URL','������URL');
-define('_AM_ORDER', 'ɽ����');
-define('_AM_ENCODING', 'RSS���󥳡���');
-define('_AM_CACHETIME', '����å��奿����');
-define('_AM_MAINSETT', '�ᥤ��ڡ���������');
-define('_AM_BLOCKSETT', '�֥��å�������');
-define('_AM_DISPLAY', '�ᥤ��ڡ�����ɽ��');
-define('_AM_DISPIMG', '������ɽ��');
-define('_AM_DISPFULL', '���٤Ƥ�ɽ��');
-define('_AM_DISPMAX', '����ɽ�����');
-define('_AM_ASBLOCK', '�֥��å���ɽ��');
-define('_AM_ADDHEADL','�إåɥ饤��ο����ɲ�');
-define('_AM_URLEDFXML','RDF/RSS�ե������URL');
-define('_AM_EDITHEADL','�إåɥ饤����Խ�');
-define('_AM_WANTDEL','�����ˤ��Υإåɥ饤��������Ƥ��������Ǥ�����<br /> ������̾�� %s');
-define('_AM_INVALIDID', 'ID������������ޤ���');
-define('_AM_OBJECTNG', '���֥������Ȥ�¸�ߤ��ޤ���');
-define('_AM_FAILUPDATE', '�إåɥ饤�����¸���Ǥ��ޤ���Ǥ���<br /> %s');
-define('_AM_FAILDELETE', '�إåɥ饤��κ�����Ǥ��ޤ���Ǥ���<br /> %s');
+define('_AM_DBUPDATED','データベースを更新しました!');
+define('_AM_HEADLINES','ヘッドライン設定');
+define('_AM_HLMAIN','ヘッドラインメイン');
+define('_AM_SITENAME','サイト名');
+define('_AM_URL','サイトURL');
+define('_AM_ORDER', '表示順');
+define('_AM_ENCODING', 'RSSエンコード');
+define('_AM_CACHETIME', 'キャッシュタイム');
+define('_AM_MAINSETT', 'メインページの設定');
+define('_AM_BLOCKSETT', 'ブロックの設定');
+define('_AM_DISPLAY', 'メインページに表示');
+define('_AM_DISPIMG', '画像を表示');
+define('_AM_DISPFULL', 'すべてを表示');
+define('_AM_DISPMAX', '最大表示件数');
+define('_AM_ASBLOCK', 'ブロックに表示');
+define('_AM_ADDHEADL','ヘッドラインの新規追加');
+define('_AM_URLEDFXML','RDF/RSSファイルのURL');
+define('_AM_EDITHEADL','ヘッドラインの編集');
+define('_AM_WANTDEL','本当にこのヘッドラインを削除してもよろしいですか？<br /> サイト名： %s');
+define('_AM_INVALIDID', 'IDが正しくありません');
+define('_AM_OBJECTNG', 'オブジェクトが存在しません');
+define('_AM_FAILUPDATE', 'ヘッドラインの保存ができませんでした<br /> %s');
+define('_AM_FAILDELETE', 'ヘッドラインの削除ができませんでした<br /> %s');
 
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC','��Ͽ����WEB�����Ȥ� RSS Auto Discovery (��ư����) ���б����Ƥ�����ϡ�<br /><b>RDF/RSS�ե������URL</b> �� <b>RSS���󥳡���</b> �������ʤ��Ȥ⡢��ưŪ�����ꤵ��ޤ�');
-//define('_AM_RSSC_LINK_RSS_EXIST','����RSS��URL����Ͽ�ѤߤǤ�');
-//define('_AM_RSSC_LINK_RSS_EXIST_MORE','Ʊ��RSS��URL�����ʣ���Υ�󥯤����Ĥ���ޤ���');
-//define('_AM_RSSC_LINK_LID_EXIST_NOT','���Υ��ID�Υ쥳���ɤ�¸�ߤ��Ƥ��ޤ���');
-//define('_AM_RSSC_AUTO_FAILD','RSS��URL�μ�ư���Ф��Ǥ��ޤ���Ǥ���');
-//define('_AM_RSSC_LID','RSS���󥿤Υ��ID');
-//define('_AM_RSSC_LID_UPDATE','���ID���ѹ�����');
-//define('_AM_RSSC_GOTO_LINK','RSS���󥿤δ������̤�');
+define('_AM_INDEX_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br /><b>RDF/RSSファイルのURL</b> と <b>RSSエンコード</b> を記入しなくとも、自動的に設定されます');
+//define('_AM_RSSC_LINK_RSS_EXIST','このRSSのURLは登録済みです');
+//define('_AM_RSSC_LINK_RSS_EXIST_MORE','同じRSSのURLを持つ複数のリンクが見つかりました');
+//define('_AM_RSSC_LINK_LID_EXIST_NOT','このリンクIDのレコードは存在していません');
+//define('_AM_RSSC_AUTO_FAILD','RSSのURLの自動検出ができませんでした');
+//define('_AM_RSSC_LID','RSSセンタのリンクID');
+//define('_AM_RSSC_LID_UPDATE','リンクIDを変更する');
+//define('_AM_RSSC_GOTO_LINK','RSSセンタの管理画面へ');
 
 ?>
