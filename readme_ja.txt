@@ -8,15 +8,15 @@ URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�� �ύX���e
-1. PHP 5.3 �Ή�
-PHP 5.3.x �Ő�������Ȃ��@�\ ���C������
+● 変更内容
+1. PHP 5.3 対応
+PHP 5.3.x で推奨されない機能 を修正した
 http://www.php.net/manual/ja/migration53.deprecated.php
-(1) new �̕Ԃ�l���Q�Ƃő�����邱��
+(1) new の返り値を参照で代入すること
 
-2. MySQL 5.5 �Ή�
+2. MySQL 5.5 対応
 (1) TYPE=MyISAM -> ENGINE=MyISAM
 (2) BLOB/TEXT can't have a default value
 
@@ -26,10 +26,10 @@ Version: 1.15
 Date:   2008-01-18
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�ύX���e
-(1) �h�C�c���ǉ�����
+変更内容
+(1) ドイツ語を追加した
 
 
 =================================================
@@ -37,10 +37,10 @@ Version: 1.14
 Date:   2007-08-01
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�ύX���e
-(1) ���{�� UTF-8 �ł�ǉ�����
+変更内容
+(1) 日本語 UTF-8 版を追加した
 
 
 =================================================
@@ -48,11 +48,11 @@ Version: 1.13
 Date:   2007-06-09
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�ύX���e
-(1) RSSC���W���[�� (v0.60) �̕ύX�ɍ��킹�āA�C������
-(2) Happy_linux ���W���[�� v0.90 ���K�v�ł��B
+変更内容
+(1) RSSCモジュール (v0.60) の変更に合わせて、修正した
+(2) Happy_linux モジュール v0.90 が必要です。
 
 
 =================================================
@@ -60,11 +60,11 @@ Version: 1.12
 Date:   2007-05-20
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�ύX���e
-(1) lastbuilddate ���Ȃ��Ƃ��́Apubdate ��\������
-(2) �y���V����t�@�C����ǉ����� (xoops persian �|��)
+変更内容
+(1) lastbuilddate がないときは、pubdate を表示する
+(2) ペルシャ語ファイルを追加した (xoops persian 翻訳)
 
 
 =================================================
@@ -72,12 +72,12 @@ Version: 1.11
 Date:   2006-09-10
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�ύX���e
-(1) RSSC���W���[���̕ύX�ɍ��킹�āA�C������
-(2) URL�`���ł͂Ȃ� guid ������ RSS �ɑΉ�����
-(3) �w�b�h���C���̓o�^���ɁARSS����͏o���Ȃ��Ƃ��́A���̎|��\������
+変更内容
+(1) RSSCモジュールの変更に合わせて、修正した
+(2) URL形式ではない guid を持つ RSS に対応した
+(3) ヘッドラインの登録時に、RSSが解析出来ないときは、その旨を表示した
 
 
 =================================================
@@ -85,68 +85,68 @@ Version: 1.10
 Date:   2006-07-10
 =================================================
 
-���̃��W���[���́A XoopsHeadline ���W���[���Ɠ����̋@�\�ł��B
+このモジュールは、 XoopsHeadline モジュールと同等の機能です。
 
-�� ���W���[���T�v
-XoopsHeadline ���x�[�X�ɁA
-RSS�t�B�[�h�̊Ǘ��@�\�� RSSC���W���[���𗘗p����悤�ɕύX�������̂ł��B
-RSSC���W���[���̘A�g�@�\�̃T���v���Ƃ��č쐬���܂����B
+● モジュール概要
+XoopsHeadline をベースに、
+RSSフィードの管理機能を RSSCモジュールを利用するように変更したものです。
+RSSCモジュールの連携機能のサンプルとして作成しました。
 
-�� XoopsHeadline �Ƃ̈Ⴂ
-�ύX�͕K�v�Œ���ɗ��߂Ă��܂��B
-XoopsHeadline �ɂĎg�����肪�����Ƃ���͂��̂܂܌p������Ă��܂��B
+● XoopsHeadline との違い
+変更は必要最低限に留めています。
+XoopsHeadline にて使い勝手が悪いところはそのまま継承されています。
 
-RSSC���W���[���̘A�g�@�\�𗘗p�������Ƃɂ��A
-���L�̓_�����ǂ���Ă��܂��B
+RSSCモジュールの連携機能を利用したことにより、
+下記の点が改良されています。
 
-(1) RSS Auto Discovery (�������o) �ւ̑Ή�
-�o�^����WEB�T�C�g�� RSS Auto Discovery �ɑΉ����Ă���ꍇ�́A
-�uRDF/RSS�t�@�C����URL�v �� �uRSS�G���R�[�h�v ���L�����Ȃ��Ƃ��A
-�����I�ɐݒ肳��܂��B
+(1) RSS Auto Discovery (自動検出) への対応
+登録するWEBサイトが RSS Auto Discovery に対応している場合は、
+「RDF/RSSファイルのURL」 と 「RSSエンコード」 を記入しなくとも、
+自動的に設定されます。
 
-�o�^����Ƃ��ɁARSS Auto Discovery �����s���A
-���o���ꂽ�uRDF/RSS�t�@�C����URL�v���ݒ肳��܂��B
-���o����Ȃ��Ƃ��́A���̎|��\�����܂��B
-�܂��ARSSC ���W���[���� �����uRDF/RSS�t�@�C����URL�v�����݂��邩���������A
-���݂���́A���łɂ�����̂𗘗p���܂��B
+登録するときに、RSS Auto Discovery を実行し、
+検出された「RDF/RSSファイルのURL」が設定されます。
+検出されないときは、その旨を表示します。
+また、RSSC モジュールに 同じ「RDF/RSSファイルのURL」が存在するかを検査し、
+存在すれは、すでにあるものを利用します。
 
-(2) allow_url_fopen = off �ɑΉ�����
+(2) allow_url_fopen = off に対応した
 
-�� �v������
-happy_linux ���W���[����RSS�Z���^�[�E���W���[�����K�v�ł��B
+● 要求事項
+happy_linux モジュールとRSSセンター・モジュールが必要です。
 
-�� �ۑ�
-�Q�̃��W���[����A�g�������Ƃɂ��A
-���W���[���Ԃɕs�������������邱�Ƃ�����܂��B
+● 課題
+２つのモジュールを連携したことにより、
+モジュール間に不整合が発生することがあります。
 
-(1) RSSC �ɂă����N���폜����
-RSSC ���ɂă����N���폜���Ă��Arssc_headline ���͍폜����܂���B
-rssc_headline ���ł́A�����N������̂ɁA
-RSS�t�B�[�h ���\������Ȃ��Ƃ����s����������܂��B
+(1) RSSC にてリンクを削除した
+RSSC 側にてリンクを削除しても、rssc_headline 側は削除されません。
+rssc_headline 側では、リンクがあるのに、
+RSSフィード が表示されないという不具合が発生します。
 
-���̕s��́A�Ǘ��҂��C�����邱�ƂŁA�������܂��B
-RSSC ���ɂ� �폜���������N���ēx �o�^���Ă��������B
-rssc_headline ���ɂāA�o�^���������N��ID�ɕύX���Ă��������B
+この不具合は、管理者が修正することで、解決します。
+RSSC 側にて 削除したリンクを再度 登録してください。
+rssc_headline 側にて、登録したリンクのIDに変更してください。
 
-(2) RSSC �ɂē����uRDF/RSS�t�@�C����URL�v���������݂���B
-rssc_headline ���ɂĊԈ�����uRDF/RSS�t�@�C����URL�v�̃����N��ǉ�����ƁA
-RSSC ���ɂ��Ԉ���������N���ǉ�����܂��B
-���̌�uRDF/RSS�t�@�C����URL�v���C������ƁA
-RSSC �����C������܂��B
-�C�������uRDF/RSS�t�@�C����URL�v���A
-RSSC ���ɑ��݂��Ă����ꍇ�ɁA
-RSSC ���ɂē����uRDF/RSS�t�@�C����URL�v���������݂��邱�ƂɂȂ�܂��B
+(2) RSSC にて同じ「RDF/RSSファイルのURL」が複数存在する。
+rssc_headline 側にて間違った「RDF/RSSファイルのURL」のリンクを追加すると、
+RSSC 側にも間違ったリンクが追加されます。
+その後「RDF/RSSファイルのURL」を修正すると、
+RSSC 側も修正されます。
+修正した「RDF/RSSファイルのURL」が、
+RSSC 側に存在していた場合に、
+RSSC 側にて同じ「RDF/RSSファイルのURL」が複数存在することになります。
 
-RSSC ���ł́A
-�����NA���X�V�����Ƃ��ɂ́ARSS�t�B�[�h�̓����NA�ɑ�������̂Ƃ��Ēǉ�����A
-�����NB���X�V�����Ƃ��ɂ́ARSS�t�B�[�h�̓����NB�ɑ�������̂Ƃ��Ēǉ�����܂��B
-�܂�����RSS�t�B�[�h�͒ǉ����Ȃ��Ƃ����d�g�݂ɂȂ��Ă��܂��B
-���̂��߁A�����NA�ɂ́ARSS�t�B�[�h1,3,5�������āA
-�����NB�ɂ́ARSS�t�B�[�h2,4,6��������悤�ɂȂ�܂��B
+RSSC 側では、
+リンクAを更新したときには、RSSフィードはリンクAに属するものとして追加され、
+リンクBを更新したときには、RSSフィードはリンクBに属するものとして追加されます。
+また同じRSSフィードは追加しないという仕組みになっています。
+そのため、リンクAには、RSSフィード1,3,5が属して、
+リンクBには、RSSフィード2,4,6が属するようになります。
 
-rssc_headline ���ł́A�����NA�ƃ����NB�̂�����ɕ\�����Ă��A
-RSS�t�B�[�h1,2,3,4,5,6���\�������̂����z�I�Ȏp�ł����A
-����ł́A�����NA�ł�RSS�t�B�[�h1,3,5�݂̂��\�������Ƃ����s����������܂��B
+rssc_headline 側では、リンクAとリンクBのいずれに表示しても、
+RSSフィード1,2,3,4,5,6が表示されるのが理想的な姿ですが、
+現状では、リンクAではRSSフィード1,3,5のみが表示されるという不具合が発生します。
 
-���̕s��́A�Ǘ��҂��C�����邱�ƂŁA�������܂��B
-rssc_headline �� �� RSSC ���̗����ŁA�d�����Ă��郊���N���폜���Ă��������B
+この不具合は、管理者が修正することで、解決します。
+rssc_headline 側 と RSSC 側の両方で、重複しているリンクを削除してください。

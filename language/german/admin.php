@@ -30,14 +30,14 @@ define('_AM_DISPIMG', 'Seiten Bild');
 define('_AM_DISPFULL', 'Vollbild Anzeige');
 define('_AM_DISPMAX', 'Maximale Artikel Anzeige');
 define('_AM_ASBLOCK', 'Anzeige im Block');
-define('_AM_ADDHEADL', 'hinzufügen Schlagzeilen');
+define('_AM_ADDHEADL', 'hinzufÃ¼gen Schlagzeilen');
 define('_AM_URLEDFXML', 'URL der RDF/RSS Datei');
 define('_AM_EDITHEADL', 'Editieren Schlagzeilen');
-define('_AM_WANTDEL', 'Sicher Schlagzeilen zu löschen von %s?');
+define('_AM_WANTDEL', 'Sicher Schlagzeilen zu lÃ¶schen von %s?');
 define('_AM_INVALIDID', 'Verkehrte ID');
 define('_AM_OBJECTNG', 'Objekt ist nicht Existent');
-define('_AM_FAILUPDATE', 'Fehler beim Speichern in die Database für Schlagzeilen %s');
-define('_AM_FAILDELETE', 'Fehler beim Löschen in die Database für Schlagzeilen %s');
+define('_AM_FAILUPDATE', 'Fehler beim Speichern in die Database fÃ¼r Schlagzeilen %s');
+define('_AM_FAILDELETE', 'Fehler beim LÃ¶schen in die Database fÃ¼r Schlagzeilen %s');
 // 2006-07-02 K.OHWADA
 define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch <b>RSS Encoding</b> automatisch, <br />bei Fehler, <br />bitte an Web-Site-Support wenden "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_RSS_EXIST', 'Already exists this "RDF/RSS URL"');

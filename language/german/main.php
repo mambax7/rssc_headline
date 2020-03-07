@@ -19,7 +19,7 @@ define('_RSSC_HEADLINE_WEBMASTER', 'Webmaster');
 define('_RSSC_HEADLINE_CATEGORY', 'Kategorie');
 define('_RSSC_HEADLINE_GENERATOR', 'Generator');
 define('_RSSC_HEADLINE_TITLE', 'Titel');
-define('_RSSC_HEADLINE_PUBDATE', 'Veröffentlicht am');
+define('_RSSC_HEADLINE_PUBDATE', 'VerÃ¶ffentlicht am');
 define('_RSSC_HEADLINE_FAILGET', 'Fehler beim Lesen RSS feed von %s');
 define('_RSSC_HEADLINE_GOTOTOP', 'Gehe zum Anfang');
 define('_RSSC_HEADLINE_HEADLINES', 'Schlagzeilen');
