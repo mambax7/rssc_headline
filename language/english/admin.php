@@ -40,7 +40,7 @@ define('_AM_FAILUPDATE', 'Failed saving data to database for headline %s');
 define('_AM_FAILDELETE', 'Failed deleting data from database for headline %s');
 
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC','Discover <b>URL of RDF/RSS fileL</b> automatically and detect <b>RSS Encoding</b> automatically, <br />when you dont fill, <br />if web site support "RSS Auto Discovery"');
+define('_AM_INDEX_DESC','Discover <b>URL of RDF/RSS fileL</b> automatically and detect <b>RSS Encoding</b> automatically, <br>when you dont fill, <br>if web site support "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_RSS_EXIST','Already exists this "RDF/RSS URL"');
 //define('_AM_RSSC_LINK_RSS_EXIST_MORE','There are twe or more links which have same "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_LID_EXIST_NOT','There are no link with this link');

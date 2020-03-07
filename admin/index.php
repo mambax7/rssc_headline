@@ -15,8 +15,8 @@
 // Id: index.php,v 1.4 2005/08/03 12:40:01 onokazu Exp
 //=========================================================
 
-include '../../../include/cp_header.php';
-include XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
+require dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
 
 // --- define rssc handler ---
 $FLAG_ADD_ERROR = false;	// show to check exist link
@@ -24,7 +24,7 @@ $FLAG_DEL_RSSC  = false;	// delete RSSC link record
 
 $ENCODINGS = ['auto' => 'AUTO', 'utf-8' => 'UTF-8', 'iso-8859-1' => 'ISO-8859-1', 'us-ascii' => 'US-ASCII'];
 
-$rssc_handler = xoops_getModuleHandler('rssc', 'rssc_headline');
+$rsscHandler = xoops_getModuleHandler('rssc', 'rssc_headline');
 // ---
 
 $op = 'list';
@@ -37,7 +37,7 @@ if (!empty($_GET['op']) && ('delete' == $_GET['op'] || 'edit' == $_GET['op'])) {
 }
 
 if ('list' == $op) {
-    include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
+    require_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
     $hlman = xoops_getModuleHandler('headline');;
     $headlines =& $hlman->getObjects();
     $count = count($headlines);
@@ -48,9 +48,9 @@ if ('list' == $op) {
 
 // --- rssc_obj ---
 		$headline_rssc_lid = $headlines[$i]->getVar('headline_rssc_lid');
-		$rssc_handler->get( $headline_rssc_lid );
-		$old_cachetime = $rssc_handler->get_cache_var( 'cachetime' );
-		$encoding      = $rssc_handler->get_cache_var( 'encoding' );
+		$rsscHandler->get( $headline_rssc_lid );
+		$old_cachetime = $rsscHandler->get_cache_var( 'cachetime' );
+		$encoding      = $rsscHandler->get_cache_var( 'encoding' );
 // ---
 
         echo '<tr><td>'.$headlines[$i]->getVar('headline_name').'</td>
@@ -100,22 +100,22 @@ if ('list' == $op) {
         echo '</select></td>';
         echo '<td><input type="checkbox" value="1" name="headline_display['.$headlines[$i]->getVar('headline_id').']"';
         if (1 == $headlines[$i]->getVar('headline_display')) {
-            echo ' checked="checked"';
+            echo ' checked';
         }
-        echo ' /></td>';
+        echo '></td>';
         echo '<td><input type="checkbox" value="1" name="headline_asblock['.$headlines[$i]->getVar('headline_id').']"';
         if (1 == $headlines[$i]->getVar('headline_asblock')) {
-            echo ' checked="checked"';
+            echo ' checked';
         }
-        echo ' /></td>';
-        echo '<td><input type="text" maxlength="3" size="4" name="headline_weight[]" value="'.$headlines[$i]->getVar('headline_weight').'" /><td><a href="index.php?op=edit&amp;headline_id='.$headlines[$i]->getVar('headline_id').'">'._EDIT.'</a>&nbsp;<a href="index.php?op=delete&amp;headline_id='.$headlines[$i]->getVar('headline_id').'">'._DELETE.'</a><input type="hidden" name="headline_id[]" value="'.$headlines[$i]->getVar('headline_id').'" /></td></tr>';
+        echo '></td>';
+        echo '<td><input type="text" maxlength="3" size="4" name="headline_weight[]" value="'.$headlines[$i]->getVar('headline_weight').'"><td><a href="index.php?op=edit&amp;headline_id='.$headlines[$i]->getVar('headline_id').'">'._EDIT.'</a>&nbsp;<a href="index.php?op=delete&amp;headline_id='.$headlines[$i]->getVar('headline_id').'">'._DELETE.'</a><input type="hidden" name="headline_id[]" value="'.$headlines[$i]->getVar('headline_id').'"></td></tr>';
     }
-    echo '</table><div style="text-align:center"><input type="hidden" name="op" value="update" /><input type="submit" name="headline_submit" value="'._SUBMIT.'" /></div></form>';
+    echo '</table><div style="text-align:center"><input type="hidden" name="op" value="update"><input type="submit" name="headline_submit" value="'._SUBMIT.'"></div></form>';
     
 // --- description ---
-	echo "<br /><br />\n";
+	echo "<br><br>\n";
 	echo _AM_INDEX_DESC;
-	echo "<br /><br />\n";
+	echo "<br><br>\n";
 // ---
     
     $form = new XoopsThemeForm(_AM_ADDHEADL, 'rssc_headline_form_new', 'index.php');
@@ -180,9 +180,9 @@ if ('update' == $op) {
 
 // --- rssc_obj ---
 		$headline_rssc_lid = $hl->getVar('headline_rssc_lid');
-		$rssc_handler->get( $headline_rssc_lid );
-		$old_cachetime = $rssc_handler->get_cache_var( 'cachetime' );
-		$encoding      = $rssc_handler->get_cache_var( 'encoding' );
+		$rsscHandler->get( $headline_rssc_lid );
+		$old_cachetime = $rsscHandler->get_cache_var( 'cachetime' );
+		$encoding      = $rsscHandler->get_cache_var( 'encoding' );
 // ---
 
         $headline_display[$id] = empty($_POST['headline_display'][$id]) ? 0 : $_POST['headline_display'][$id];
@@ -196,13 +196,13 @@ if ('update' == $op) {
         $hl->setVar('headline_asblock', $headline_asblock[$id]);
 //      $old_encoding = $hl->getVar('headline_encoding');
         if (!$hlman->insert($hl)) {
-            $msg .= '<br />'.sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
+            $msg .= '<br>'.sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
         } else {
 
 // --- update to rssc ---
-		if ( !$rssc_handler->update_headline( $headline_rssc_lid, $i ) )
+		if ( !$rsscHandler->update_headline( $headline_rssc_lid, $i ) )
 		{
-			$msg .= '<br />'.sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
+			$msg .= '<br>'.sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
 		}
 // ---
 
@@ -212,9 +212,9 @@ if ('update' == $op) {
 //                $renderer->updateCache();
 //            }
 
-			if (0 == $rssc_handler->get_feed_count($headline_rssc_lid))
+			if (0 == $rsscHandler->get_feed_count($headline_rssc_lid))
 			{
-				$rssc_handler->update_cache($headline_rssc_lid);
+				$rsscHandler->update_cache($headline_rssc_lid);
 			}
 // ---
 
@@ -236,7 +236,7 @@ if ('update' == $op) {
 if ('addgo' == $op) {
 
 // --- check rssc ---
-	$ret1 = $rssc_handler->check_add_headline();
+	$ret1 = $rsscHandler->check_add_headline();
 
 // exist rss link
 	if ( $FLAG_ADD_ERROR && (RSSC_CODE_LINK_ALREADY == $ret1) )
@@ -244,8 +244,8 @@ if ('addgo' == $op) {
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error( _RSSC_LINK_ALREADY );
-		echo "<br />\n";
-		echo $rssc_handler->getErrors('s');
+		echo "<br>\n";
+		echo $rsscHandler->getErrors('s');
 		xoops_cp_footer();
 		exit();
 	}
@@ -276,7 +276,7 @@ if ('addgo' == $op) {
 
     {
         $msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
-        $msg .= '<br />'.$hl->getErrors();
+        $msg .= '<br>'.$hl->getErrors();
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
@@ -285,15 +285,15 @@ if ('addgo' == $op) {
     }
 
 // --- insert to rssc ---
-	$new_rssc_lid = $rssc_handler->add_headline( $headline_id );
+	$new_rssc_lid = $rsscHandler->add_headline( $headline_id );
 	if ( !$new_rssc_lid )
 	{
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error( _RSSC_DB_ERROR );
 		echo $hl->getVar('headline_name');
-		echo "<br />\n";
-		echo $rssc_handler->getErrors('s');
+		echo "<br>\n";
+		echo $rsscHandler->getErrors('s');
 		xoops_cp_footer();
 		exit();
 	}
@@ -305,7 +305,7 @@ if ('addgo' == $op) {
 	if ( !$hlman->insert($hl) )
 	{
 		$msg = sprintf( _AM_FAILUPDATE, $hl->getVar('headline_name') );
-		$msg .= '<br />'.$hl->getErrors();
+		$msg .= '<br>'.$hl->getErrors();
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);
@@ -321,15 +321,15 @@ if ('addgo' == $op) {
 //			$renderer->updateCache();
 //		}
 
-		$ret2 = $rssc_handler->refresh_for_add_headline( $new_rssc_lid );
+		$ret2 = $rsscHandler->refresh_for_add_headline( $new_rssc_lid );
 		if (RSSC_CODE_DB_ERROR == $ret2)
 		{
 			xoops_cp_header();
 			echo '<h4>' . _AM_HEADLINES . '</h4>';
 			xoops_error( _RSSC_DB_ERROR );
 			echo $hl->getVar('headline_name');
-			echo "<br />\n";
-			echo $rssc_handler->getErrors('s');
+			echo "<br>\n";
+			echo $rsscHandler->getErrors('s');
 			xoops_cp_footer();
 			exit();
 		}
@@ -363,8 +363,8 @@ if ('addgo' == $op) {
 	if (RSSC_CODE_PARSE_MSG == $ret2)
 	{
 		$msg  = _AM_DBUPDATED;
-		$msg .= '<br /><br />';
-		$msg .= $rssc_handler->get_parse_result();
+		$msg .= '<br><br>';
+		$msg .= $rsscHandler->get_parse_result();
 		redirect_header('index.php', 5, $msg);
 		exit();
 	}
@@ -392,7 +392,7 @@ if ('edit' == $op) {
         exit();
     }
 
-    include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
+    require_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
     $form = new XoopsThemeForm(_AM_EDITHEADL, 'rssc_headline_form', 'index.php');
 
 // --- headline_id ---
@@ -404,11 +404,11 @@ if ('edit' == $op) {
 	$rssc_url = XOOPS_URL.'/modules/'.RSSC_HEADLINE_RSSC_DIRNAME.'/admin/link_manage.php?op=mod_form&lid='.$headline_rssc_lid;
 	$rssc_goto_url = '<a href="'.$rssc_url.'">'._RSSC_GOTO_RSSC_ADMIN_LINK.'</a>'."\n";
 
-	$rssc_handler->get( $headline_rssc_lid );
-	$url        = $rssc_handler->get_cache_var( 'url' );
-	$rssurl    = $rssc_handler->get_cache_var( 'rssurl' );
-	$encoding  = $rssc_handler->get_cache_var( 'encoding' );
-	$cachetime = $rssc_handler->get_cache_var( 'cachetime' );
+	$rsscHandler->get( $headline_rssc_lid );
+	$url        = $rsscHandler->get_cache_var( 'url' );
+	$rssurl    = $rsscHandler->get_cache_var( 'rssurl' );
+	$encoding  = $rsscHandler->get_cache_var( 'encoding' );
+	$cachetime = $rsscHandler->get_cache_var( 'cachetime' );
 
 	$form->addElement(new XoopsFormText(_RSSC_RSSC_LID, 'headline_rssc_lid', 50, 255, $headline_rssc_lid), true);
 	$form->addElement(new XoopsFormLabel('', $rssc_goto_url) );
@@ -469,7 +469,7 @@ if ('edit' == $op) {
     $form->addElement(new XoopsFormHidden('op', 'editgo'));
     $form->addElement(new XoopsFormButton('', 'headline_submit', _SUBMIT, 'submit'));
     xoops_cp_header();
-    echo '<h4>' . _AM_HEADLINES . '</h4><br />';
+    echo '<h4>' . _AM_HEADLINES . '</h4><br>';
 
 // --- warning message ---
 	if ( isset($_GET['code']) )
@@ -479,36 +479,36 @@ if ('edit' == $op) {
 		if (RSSC_CODE_DISCOVER_FAILED == $code)
 		{
 			xoops_error( _RSSC_DISCOVER_FAILED );
-			echo "<br />\n";
+			echo "<br>\n";
 		}
 		elseif (RSSC_CODE_PARSE_FAILED == $code)
 		{
 			xoops_error( _RSSC_PARSE_FAILED );
-			echo "<br />\n";
+			echo "<br>\n";
 		}
 		elseif (RSSC_CODE_REFRESH_ERROR == $code)
 		{
 			xoops_error( _RSSC_REFRESH_ERROR );
-			echo "<br />\n";
+			echo "<br>\n";
 		}
 	}
 
-	$ret = $rssc_handler->check_mod_form_headline($headline_rssc_lid, $url, $rssurl);
+	$ret = $rsscHandler->check_mod_form_headline($headline_rssc_lid, $url, $rssurl);
 	if (RSSC_CODE_LINK_NOT_EXIST == $ret)
 	{
 		xoops_error( _RSSC_LINK_NOT_EXIST );
-		echo "<br />\n";
+		echo "<br>\n";
 	}
 	elseif (RSSC_CODE_LINK_ALREADY == $ret)
 	{
 		xoops_error( _RSSC_LINK_EXIST_MORE );
-		echo "<br />\n";
-		echo $rssc_handler->getErrors('s');
-		echo "<br />\n";
+		echo "<br>\n";
+		echo $rsscHandler->getErrors('s');
+		echo "<br>\n";
 	}
 // ---
 
-    //echo '<a href="index.php">'. _AM_HLMAIN .'</a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;'.$hl->getVar('headline_name').'<br /><br />';
+    //echo '<a href="index.php">'. _AM_HLMAIN .'</a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;'.$hl->getVar('headline_name').'<br><br>';
     $form->display();
     xoops_cp_footer();
     exit();
@@ -563,7 +563,7 @@ if ('editgo' == $op) {
 
     if (!$res = $hlman->insert($hl)) {
         $msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
-        $msg .= '<br />'.$hl->getHtmlErrors();
+        $msg .= '<br>'.$hl->getHtmlErrors();
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
         xoops_error($msg);
@@ -572,10 +572,10 @@ if ('editgo' == $op) {
     }
 
 // --- update to rssc ---
-	if ( !$rssc_handler->mod_headline( $headline_rssc_lid ) )
+	if ( !$rsscHandler->mod_headline( $headline_rssc_lid ) )
 	{
 		$msg = sprintf(_AM_FAILUPDATE, $hl->getVar('headline_name'));
-		$msg .= '<br />'.$rssc_handler->getErrors('s');
+		$msg .= '<br>'.$rsscHandler->getErrors('s');
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);
@@ -590,9 +590,9 @@ if ('editgo' == $op) {
 //            $renderer->updateCache();
 //        }
 
-	if (0 == $rssc_handler->get_feed_count($headline_rssc_lid ))
+	if (0 == $rsscHandler->get_feed_count($headline_rssc_lid ))
 	{
-		$rssc_handler->update_cache( $headline_rssc_lid );
+		$rsscHandler->update_cache( $headline_rssc_lid );
 	}
 // ---
 
@@ -656,10 +656,10 @@ if ('deletego' == $op) {
     }
 
 // --- delete from rssc ---
-	if ( $FLAG_DEL_RSSC && !$rssc_handler->del_headline( $headline_rssc_lid ) )
+	if ( $FLAG_DEL_RSSC && !$rsscHandler->del_headline( $headline_rssc_lid ) )
 	{
 		$msg = sprintf(_AM_FAILDELETE, $hl->getVar('headline_name'));
-		$msg .= '<br />'.$rssc_handler->getErrors('s');
+		$msg .= '<br>'.$rsscHandler->getErrors('s');
 		xoops_cp_header();
 		echo '<h4>' . _AM_HEADLINES . '</h4>';
 		xoops_error($msg);

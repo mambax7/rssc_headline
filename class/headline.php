@@ -65,12 +65,12 @@ class rssc_headlineHeadlineHandler
 {
     public $db;
 
-    public function __construct(&$db)
+    public function __construct(\XoopsDatabase $db)
     {
-        $this->db =& $db;
+        $this->db = $db;
     }
 
-    public static function &getInstance(&$db)
+    public static function &getInstance($db)
     {
         static $instance;
         if (!isset($instance)) {
@@ -231,7 +231,7 @@ class rssc_headlineHeadlineHandler
         if (!$result) {
             return $ret;
         }
-        while ($myrow = $this->db->fetchArray($result)) {
+        while (false !== ($myrow = $this->db->fetchArray($result))) {
             $headline = new rssc_headline_Headline();
             $headline->assignVars($myrow);
             $ret[] =& $headline;

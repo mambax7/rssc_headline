@@ -17,18 +17,18 @@
 // Id: headlinerenderer.php,v 1.3 2005/08/03 12:40:01 onokazu Exp
 //=========================================================
 
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH.'/class/template.php';
 
 $XOOPS_LANGUAGE = $GLOBALS['xoopsConfig']['language'];
 
 // main.php
 if ( file_exists(XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$XOOPS_LANGUAGE.'/main.php') ) 
 {
-	include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$XOOPS_LANGUAGE.'/main.php';
+	require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$XOOPS_LANGUAGE.'/main.php';
 }
 else
 {
-	include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/english/main.php';
+	require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/english/main.php';
 }
 
 class rssc_headline_Renderer
@@ -49,7 +49,7 @@ class rssc_headline_Renderer
     public $_parser;
 
     // --- define rssc handler ---
-    public $_rssc_handler;
+    public $_rsscHandler;
     public $_rssc_lid;
 
     // ---
@@ -60,7 +60,7 @@ class rssc_headline_Renderer
         $this->_tpl = new XoopsTpl();
 
         // --- define rssc handler ---
-        $this->_rssc_handler = xoops_getModuleHandler('rssc', 'rssc_headline');
+        $this->_rsscHandler = xoops_getModuleHandler('rssc', 'rssc_headline');
         $this->_rssc_lid     = $this->_hl->getVar('headline_rssc_lid');
         // ---
     }
@@ -79,8 +79,8 @@ class rssc_headline_Renderer
         fclose($fp);
         $this->_hl->setVar('headline_xml', $this->convertToUtf8($data));
         $this->_hl->setVar('headline_updated', time());
-        $headline_handler = xoops_getModuleHandler('headline', 'rssc_headline');
-        return $headline_handler->insert($this->_hl);
+        $headlineHandler = xoops_getModuleHandler('headline', 'rssc_headline');
+        return $headlineHandler->insert($this->_hl);
     }
 
     // ---
@@ -97,14 +97,14 @@ class rssc_headline_Renderer
         //			return false;
         //		}
 
-        $this->_rssc_handler->set_force_update($force_update);
-        $this->_rssc_handler->update_cache($this->_rssc_lid);
+        $this->_rsscHandler->set_force_update($force_update);
+        $this->_rsscHandler->update_cache($this->_rssc_lid);
 
-        $this->_rssc_handler->set_max_num_feed($this->_hl->getVar('headline_mainmax'));
-        $this->_rssc_handler->fetch_cache($this->_rssc_lid);
-        $channel_data = $this->_rssc_handler->get_channel();
-        $image_data   = $this->_rssc_handler->get_image();
-        $items        = $this->_rssc_handler->get_items();
+        $this->_rsscHandler->set_max_num_feed($this->_hl->getVar('headline_mainmax'));
+        $this->_rsscHandler->fetch_cache($this->_rssc_lid);
+        $channel_data = $this->_rsscHandler->get_channel();
+        $image_data   = $this->_rsscHandler->get_image();
+        $items        = $this->_rsscHandler->get_items();
         // ---
 
         $this->_tpl->clear_all_assign();
@@ -173,15 +173,15 @@ class rssc_headline_Renderer
         //			return false;
         //		}
 
-        $this->_rssc_handler->set_force_update($force_update);
-        $this->_rssc_handler->update_cache($this->_rssc_lid);
+        $this->_rsscHandler->set_force_update($force_update);
+        $this->_rsscHandler->update_cache($this->_rssc_lid);
 
-        $this->_rssc_handler->set_max_num_feed($this->_hl->getVar('headline_blockmax'));
-        $this->_rssc_handler->fetch_cache($this->_rssc_lid);
+        $this->_rsscHandler->set_max_num_feed($this->_hl->getVar('headline_blockmax'));
+        $this->_rsscHandler->fetch_cache($this->_rssc_lid);
 
-        $channel_data = $this->_rssc_handler->get_channel();
-        $image_data   = $this->_rssc_handler->get_image();
-        $items        = $this->_rssc_handler->get_items();
+        $channel_data = $this->_rsscHandler->get_channel();
+        $image_data   = $this->_rsscHandler->get_image();
+        $items        = $this->_rsscHandler->get_items();
         // ---
 
         $this->_tpl->clear_all_assign();
@@ -226,7 +226,7 @@ class rssc_headline_Renderer
         if (isset($this->_parser)) {
             return true;
         }
-        include_once XOOPS_ROOT_PATH . '/class/xml/rss/xmlrss2parser.php';
+        require_once XOOPS_ROOT_PATH . '/class/xml/rss/xmlrss2parser.php';
         $this->_parser = new XoopsXmlRss2Parser($this->_hl->getVar('headline_xml'));
         switch ($this->_hl->getVar('headline_encoding')) {
             case 'utf-8':
@@ -273,7 +273,7 @@ class rssc_headline_Renderer
             $ret = '';
             if (count($this->_errors) > 0) {
                 foreach ($this->_errors as $error) {
-                    $ret .= $error . '<br />';
+                    $ret .= $error . '<br>';
                 }
             }
             return $ret;

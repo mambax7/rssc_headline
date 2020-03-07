@@ -40,7 +40,7 @@ define('_AM_FAILUPDATE', 'خطا در ذخیره کردن اطلاعات تیت�
 define('_AM_FAILDELETE', 'خطا در پاک کردن اطلاعات تیتر خبری %s از پایگاه داده ها');
 
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC','Discover <b>URL of RDF/RSS fileL</b> automatically and detect <b>RSS Encoding</b> automatically, <br />when you dont fill, <br />if web site support "RSS Auto Discovery"');
+define('_AM_INDEX_DESC','Discover <b>URL of RDF/RSS fileL</b> automatically and detect <b>RSS Encoding</b> automatically, <br>when you dont fill, <br>if web site support "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_RSS_EXIST','Already exists this "RDF/RSS URL"');
 //define('_AM_RSSC_LINK_RSS_EXIST_MORE','There are twe or more links which have same "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_LID_EXIST_NOT','هیچ لینکی در این لینک موجود نیست');

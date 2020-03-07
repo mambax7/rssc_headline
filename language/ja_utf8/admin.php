@@ -34,14 +34,14 @@ define('_AM_ASBLOCK', 'ブロックに表示');
 define('_AM_ADDHEADL','ヘッドラインの新規追加');
 define('_AM_URLEDFXML','RDF/RSSファイルのURL');
 define('_AM_EDITHEADL','ヘッドラインの編集');
-define('_AM_WANTDEL','本当にこのヘッドラインを削除してもよろしいですか？<br /> サイト名： %s');
+define('_AM_WANTDEL','本当にこのヘッドラインを削除してもよろしいですか？<br> サイト名： %s');
 define('_AM_INVALIDID', 'IDが正しくありません');
 define('_AM_OBJECTNG', 'オブジェクトが存在しません');
-define('_AM_FAILUPDATE', 'ヘッドラインの保存ができませんでした<br /> %s');
-define('_AM_FAILDELETE', 'ヘッドラインの削除ができませんでした<br /> %s');
+define('_AM_FAILUPDATE', 'ヘッドラインの保存ができませんでした<br> %s');
+define('_AM_FAILDELETE', 'ヘッドラインの削除ができませんでした<br> %s');
 
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br /><b>RDF/RSSファイルのURL</b> と <b>RSSエンコード</b> を記入しなくとも、自動的に設定されます');
+define('_AM_INDEX_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br><b>RDF/RSSファイルのURL</b> と <b>RSSエンコード</b> を記入しなくとも、自動的に設定されます');
 //define('_AM_RSSC_LINK_RSS_EXIST','このRSSのURLは登録済みです');
 //define('_AM_RSSC_LINK_RSS_EXIST_MORE','同じRSSのURLを持つ複数のリンクが見つかりました');
 //define('_AM_RSSC_LINK_LID_EXIST_NOT','このリンクIDのレコードは存在していません');

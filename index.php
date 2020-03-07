@@ -14,12 +14,12 @@
 // Id: index.php,v 1.3 2005/09/04 20:46:12 onokazu Exp
 //=========================================================
 
-include '../../mainfile.php';
-include 'include/functions.php';
+require dirname(dirname(__DIR__)) . '/mainfile.php';
+require __DIR__ . '/include/functions.php';
 $hlman = xoops_getModuleHandler('headline');;
 $hlid = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$xoopsOption['template_main'] = 'rssc_headline_index.html';
-include XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = 'rssc_headline_index.html';
+require XOOPS_ROOT_PATH.'/header.php';
 $headlines =& $hlman->getObjects(new Criteria('headline_display', 1));
 $count = count($headlines);
 for ($i = 0; $i < $count; $i++) {
@@ -38,12 +38,12 @@ if ($hlid > 0) {
 		$renderer =& rssc_headline_getrenderer($headline);
 		if (!$renderer->renderFeed()) {
 			if (2 == $xoopsConfig['debug_mode']) {
-				$xoopsTpl->assign('headline', '<p>'.sprintf(_RSSC_HEADLINE_FAILGET, $headline->getVar('headline_name')).'<br />'.$renderer->getErrors().'</p>');
+				$xoopsTpl->assign('headline', '<p>'.sprintf(_RSSC_HEADLINE_FAILGET, $headline->getVar('headline_name')).'<br>'.$renderer->getErrors().'</p>');
 			}
 		} else {
 			$xoopsTpl->assign('headline', $renderer->getFeed());
 		}
 	}
 }
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 ?>

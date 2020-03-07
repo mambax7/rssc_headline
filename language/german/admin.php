@@ -39,7 +39,7 @@ define('_AM_OBJECTNG', 'Objekt ist nicht Existent');
 define('_AM_FAILUPDATE', 'Fehler beim Speichern in die Database für Schlagzeilen %s');
 define('_AM_FAILDELETE', 'Fehler beim Löschen in die Database für Schlagzeilen %s');
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch <b>RSS Encoding</b> automatisch, <br />bei Fehler, <br />bitte an Web-Site-Support wenden "RSS Auto Discovery"');
+define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch <b>RSS Encoding</b> automatisch, <br>bei Fehler, <br>bitte an Web-Site-Support wenden "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_RSS_EXIST', 'Already exists this "RDF/RSS URL"');
 //define('_AM_RSSC_LINK_RSS_EXIST_MORE', 'There are twe or more links which have same "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_LID_EXIST_NOT', 'There are no link with this link');

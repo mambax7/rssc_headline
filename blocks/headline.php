@@ -13,7 +13,7 @@
 // Id: headline.php,v 1.2 2005/03/18 12:52:49 onokazu Exp
 //=========================================================
 
-include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
+require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/include/functions.php';
 
 function b_rssc_headline_show($options)
 {
@@ -26,7 +26,7 @@ function b_rssc_headline_show($options)
 		$renderer =& rssc_headline_getrenderer($headlines[$i]);
 		if (!$renderer->renderBlock()) {
 			if (2 == $xoopsConfig['debug_mode']) {
-				$block['feeds'][] = sprintf(_RSSC_HEADLINE_FAILGET, $headlines[$i]->getVar('headline_name')).'<br />'.$renderer->getErrors();
+				$block['feeds'][] = sprintf(_RSSC_HEADLINE_FAILGET, $headlines[$i]->getVar('headline_name')).'<br>'.$renderer->getErrors();
 			}
 			continue;
 		}
