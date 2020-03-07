@@ -63,7 +63,7 @@ class rssc_headline_Headline extends XoopsObject
 
 class rssc_headlineHeadlineHandler
 {
-    var $db;
+    public $db;
 
     public function rssc_headlineHeadlineHandler(&$db)
     {

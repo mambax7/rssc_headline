@@ -33,27 +33,27 @@ else
 class rssc_headlineRsscHandler extends rssc_error
 {
     // config constant
-    var $FORMAT_DATE = 'l';    // l=long, r=rfc822
+    public $FORMAT_DATE = 'l';    // l=long, r=rfc822
 
     // handler
-    var $_rssc_refresh_handler;
-    var $_rssc_view_handler;
-    var $_rssc_link_xml_handler;
-    var $_rssc_utility;
+    public $_rssc_refresh_handler;
+    public $_rssc_view_handler;
+    public $_rssc_link_xml_handler;
+    public $_rssc_utility;
 
     // set variable
-    var $_mid;
+    public $_mid;
 
     // result
-    var $_result;
-    var $_lid_exist = 0;
-    var $_xml_mode  = 0;
-    var $_rdf_url;
-    var $_rss_url;
-    var $_atom_url;
-    var $_parse_result;
+    public $_result;
+    public $_lid_exist = 0;
+    public $_xml_mode  = 0;
+    public $_rdf_url;
+    public $_rss_url;
+    public $_atom_url;
+    public $_parse_result;
 
-    var $_rssc_link_obj;
+    public $_rssc_link_obj;
 
     //---------------------------------------------------------
     // constructor

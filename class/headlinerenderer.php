@@ -34,23 +34,23 @@ else
 class rssc_headline_Renderer
 {
     // holds reference to rssc_headline class object
-    var $_hl;
+    public $_hl;
 
     // XoopTemplate object
-    var $_tpl;
+    public $_tpl;
 
-    var $_feed;
+    public $_feed;
 
-    var $_block;
+    public $_block;
 
-    var $_errors = [];
+    public $_errors = [];
 
     // RSS2 SAX parser
-    var $_parser;
+    public $_parser;
 
     // --- define rssc handler ---
-    var $_rssc_handler;
-    var $_rssc_lid;
+    public $_rssc_handler;
+    public $_rssc_lid;
 
     // ---
 
