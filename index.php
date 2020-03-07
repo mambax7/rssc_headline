@@ -17,7 +17,7 @@
 include '../../mainfile.php';
 include 'include/functions.php';
 $hlman =& xoops_getModuleHandler('headline');;
-$hlid = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$hlid = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $xoopsOption['template_main'] = 'rssc_headline_index.html';
 include XOOPS_ROOT_PATH.'/header.php';
 $headlines =& $hlman->getObjects(new Criteria('headline_display', 1));

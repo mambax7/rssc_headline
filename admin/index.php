@@ -31,7 +31,7 @@ $op = 'list';
 
 if (!empty($_GET['op']) && ('delete' == $_GET['op'] || 'edit' == $_GET['op'])) {
     $op = $_GET['op'];
-    $headline_id = intval($_GET['headline_id']);
+    $headline_id = (int)$_GET['headline_id'];
 } elseif (!empty($_POST['op'])) {
     $op = $_POST['op'];
 }
@@ -474,7 +474,7 @@ if ('edit' == $op) {
 // --- warning message ---
 	if ( isset($_GET['code']) )
 	{
-		$code = intval($_GET['code']);
+		$code = (int)$_GET['code'];
 	
 		if (RSSC_CODE_DISCOVER_FAILED == $code)
 		{
@@ -515,7 +515,7 @@ if ('edit' == $op) {
 }
 
 if ('editgo' == $op) {
-    $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
+    $headline_id = !empty($_POST['headline_id']) ? (int)$_POST['headline_id'] : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';
@@ -625,7 +625,7 @@ if ('delete' == $op) {
 }
 
 if ('deletego' == $op) {
-    $headline_id = !empty($_POST['headline_id']) ? intval($_POST['headline_id']) : 0;
+    $headline_id = !empty($_POST['headline_id']) ? (int)$_POST['headline_id'] : 0;
     if ($headline_id <= 0) {
         xoops_cp_header();
         echo '<h4>' . _AM_HEADLINES . '</h4>';

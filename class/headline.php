@@ -87,7 +87,7 @@ class rssc_headlineHeadlineHandler
 
     public function &get($id)
     {
-        $id = intval($id);
+        $id = (int)$id;
         if ($id > 0) {
             $sql = 'SELECT * FROM ' . $this->db->prefix('rssc_headline') . ' WHERE headline_id=' . $id;
             if (!$result = $this->db->query($sql)) {

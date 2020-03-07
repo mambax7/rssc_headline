@@ -421,7 +421,7 @@ class rssc_headlineRsscHandler extends rssc_error
 
     public function set_mid($value)
     {
-        $this->_mid = intval($value);
+        $this->_mid = (int)$value;
     }
 
     // --- class end ---
