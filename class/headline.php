@@ -22,7 +22,6 @@
 
 class rssc_headline_Headline extends XoopsObject
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -57,6 +56,7 @@ class rssc_headline_Headline extends XoopsObject
         if (time() - $this->getVar('headline_updated') > $this->getVar('headline_cachetime')) {
             return true;
         }
+
         return false;
     }
 }
@@ -83,6 +83,7 @@ class rssc_headlineHeadlineHandler
     public function &create()
     {
         $ret = new rssc_headline_Headline();
+
         return $ret;
     }
 
@@ -98,15 +99,17 @@ class rssc_headlineHeadlineHandler
             if (1 == $numrows) {
                 $headline = new rssc_headline_Headline();
                 $headline->assignVars($this->db->fetchArray($result));
+
                 return $headline;
             }
         }
+
         return false;
     }
 
     public function insert($headline)
     {
-        if ('rssc_headline_headline' != strtolower(get_class($headline))) {
+        if ('rssc_headline_headline' != mb_strtolower(get_class($headline))) {
             return false;
         }
         if (!$headline->cleanVars()) {
@@ -202,18 +205,20 @@ class rssc_headlineHeadlineHandler
             $headline_id = $this->db->getInsertId();
         }
         $headline->assignVar('headline_id', $headline_id);
+
         return $headline_id;
     }
 
     public function delete($headline)
     {
-        if ('rssc_headline_headline' != strtolower(get_class($headline))) {
+        if ('rssc_headline_headline' != mb_strtolower(get_class($headline))) {
             return false;
         }
         $sql = sprintf('DELETE FROM %s WHERE headline_id = %u', $this->db->prefix('rssc_headline'), $headline->getVar('headline_id'));
         if (!$result = $this->db->query($sql)) {
             return false;
         }
+
         return true;
     }
 
@@ -235,9 +240,10 @@ class rssc_headlineHeadlineHandler
         while (false !== ($myrow = $this->db->fetchArray($result))) {
             $headline = new rssc_headline_Headline();
             $headline->assignVars($myrow);
-            $ret[] =& $headline;
+            $ret[] = &$headline;
             unset($headline);
         }
+
         return $ret;
     }
 
@@ -251,8 +257,7 @@ class rssc_headlineHeadlineHandler
             return 0;
         }
         list($count) = $this->db->fetchRow($result);
+
         return $count;
     }
 }
-
-?>

@@ -47,4 +47,3 @@ define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch
 //define('_AM_RSSC_LID', 'Link ID of RSS Center');
 //define('_AM_RSSC_LID_UPDATE', 'Update Link ID');
 //define('_AM_RSSC_GOTO_LINK', 'Goto admin page of RSS center');
-?>

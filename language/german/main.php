@@ -23,4 +23,3 @@ define('_RSSC_HEADLINE_PUBDATE', 'Veröffentlicht am');
 define('_RSSC_HEADLINE_FAILGET', 'Fehler beim Lesen RSS feed von %s');
 define('_RSSC_HEADLINE_GOTOTOP', 'Gehe zum Anfang');
 define('_RSSC_HEADLINE_HEADLINES', 'Schlagzeilen');
-?>

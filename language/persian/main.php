@@ -23,5 +23,3 @@ define('_RSSC_HEADLINE_PUBDATE', 'منتشر کردن');
 define('_RSSC_HEADLINE_FAILGET', 'Failed retrieving RSS feed from %s');
 define('_RSSC_HEADLINE_GOTOTOP', 'Goto Top');
 define('_RSSC_HEADLINE_HEADLINES', 'تیتر های خبری');
-
-?>

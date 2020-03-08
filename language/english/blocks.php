@@ -15,5 +15,3 @@
 // Blocks
 define('_MB_RSSC_HEADLINE_DISPLAYF', 'Display site logo');
 define('_MB_RSSC_HEADLINE_MAXITEM', 'Max number of items for each headline');
-
-?>

@@ -26,4 +26,3 @@ define('_MI_RSSC_HEADLINE_BNAME', 'تیتر های خبری');
 
 // Names of admin menu items
 define('_MI_RSSC_HEADLINE_ADMENU1', 'لیست تیتر های خبری RSSC');
-?>

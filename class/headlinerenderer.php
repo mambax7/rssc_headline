@@ -17,18 +17,15 @@
 // Id: headlinerenderer.php,v 1.3 2005/08/03 12:40:01 onokazu Exp
 //=========================================================
 
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
 
 $XOOPS_LANGUAGE = $GLOBALS['xoopsConfig']['language'];
 
 // main.php
-if ( file_exists(XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$XOOPS_LANGUAGE.'/main.php') ) 
-{
-	require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$XOOPS_LANGUAGE.'/main.php';
-}
-else
-{
-	require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/english/main.php';
+if (file_exists(XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $XOOPS_LANGUAGE . '/main.php')) {
+    require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $XOOPS_LANGUAGE . '/main.php';
+} else {
+    require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/english/main.php';
 }
 
 class rssc_headline_Renderer
@@ -56,20 +53,21 @@ class rssc_headline_Renderer
 
     public function __construct(&$headline)
     {
-        $this->_hl  =& $headline;
+        $this->_hl  = &$headline;
         $this->_tpl = new XoopsTpl();
 
         // --- define rssc handler ---
         $this->_rsscHandler = xoops_getModuleHandler('rssc', 'rssc_headline');
-        $this->_rssc_lid     = $this->_hl->getVar('headline_rssc_lid');
+        $this->_rssc_lid    = $this->_hl->getVar('headline_rssc_lid');
         // ---
     }
 
     // --- not use ---
     public function xxx_updateCache()
     {
-        if (!$fp = fopen($this->_hl->getVar('headline_rssurl'), 'r')) {
+        if (!$fp = fopen($this->_hl->getVar('headline_rssurl'), 'rb')) {
             $this->_setErrors('Could not open file: ' . $this->_hl->getVar('headline_rssurl'));
+
             return false;
         }
         $data = '';
@@ -80,6 +78,7 @@ class rssc_headline_Renderer
         $this->_hl->setVar('headline_xml', $this->convertToUtf8($data));
         $this->_hl->setVar('headline_updated', time());
         $headlineHandler = xoops_getModuleHandler('headline', 'rssc_headline');
+
         return $headlineHandler->insert($this->_hl);
     }
 
@@ -158,6 +157,7 @@ class rssc_headline_Renderer
             ]
         );
         $this->_feed = $this->_tpl->fetch('db:rssc_headline_feed.html');
+
         return true;
     }
 
@@ -217,6 +217,7 @@ class rssc_headline_Renderer
         }
         $this->_tpl->assign(['site_name' => $this->_hl->getVar('headline_name'), 'site_url' => $this->_hl->getVar('headline_url'), 'site_id' => $this->_hl->getVar('headline_id')]);
         $this->_block = $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssc_headline/blocks/headline_block.html');
+
         return true;
     }
 
@@ -243,8 +244,10 @@ class rssc_headline_Renderer
         if (!$result) {
             $this->_setErrors($this->_parser->getErrors(false));
             unset($this->_parser);
+
             return false;
         }
+
         return true;
     }
 
@@ -269,15 +272,15 @@ class rssc_headline_Renderer
     {
         if (!$ashtml) {
             return $this->_errors;
-        } else {
-            $ret = '';
-            if (count($this->_errors) > 0) {
-                foreach ($this->_errors as $error) {
-                    $ret .= $error . '<br>';
-                }
-            }
-            return $ret;
         }
+        $ret = '';
+        if (count($this->_errors) > 0) {
+            foreach ($this->_errors as $error) {
+                $ret .= $error . '<br>';
+            }
+        }
+
+        return $ret;
     }
 
     // abstract
@@ -296,5 +299,3 @@ class rssc_headline_Renderer
         return $xmlfile;
     }
 }
-
-?>

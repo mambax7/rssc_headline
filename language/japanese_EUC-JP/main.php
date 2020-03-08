@@ -24,4 +24,3 @@ define('_RSSC_HEADLINE_PUBDATE', '公開');
 define('_RSSC_HEADLINE_FAILGET', '%s からの RSSの取得ができませんでした。');
 define('_RSSC_HEADLINE_GOTOTOP', 'トップに戻る');
 define('_RSSC_HEADLINE_HEADLINES', 'ヘッドライン');
-?>

@@ -18,15 +18,16 @@
 
 function &rssc_headline_getrenderer(&$headline)
 {
-	require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/class/headlinerenderer.php';
-	if (file_exists(XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$GLOBALS['xoopsConfig']['language'].'/headlinerenderer.php')) {
-		require_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$GLOBALS['xoopsConfig']['language'].'/headlinerenderer.php';
-		if (class_exists('rssc_headline_RendererLocal')) {
-			$ret = new rssc_headline_RendererLocal($headline);
-			return $ret;
-		}
-	}
-	$ret = new rssc_headline_Renderer($headline);
-	return $ret;
+    require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/class/headlinerenderer.php';
+    if (file_exists(XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $GLOBALS['xoopsConfig']['language'] . '/headlinerenderer.php')) {
+        require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $GLOBALS['xoopsConfig']['language'] . '/headlinerenderer.php';
+        if (class_exists('rssc_headline_RendererLocal')) {
+            $ret = new rssc_headline_RendererLocal($headline);
+
+            return $ret;
+        }
+    }
+    $ret = new rssc_headline_Renderer($headline);
+
+    return $ret;
 }
-?>

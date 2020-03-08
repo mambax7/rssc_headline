@@ -15,4 +15,3 @@
 // Blocks
 define('_MB_RSSC_HEADLINE_DISPLAYF', 'Anzeige Logo');
 define('_MB_RSSC_HEADLINE_MAXITEM', 'Maximale Anzahl Artikel für Schlagzeilen');
-?>

@@ -4,7 +4,7 @@ $Id: readme_ja.txt,v 1.2 2011/12/29 20:06:57 ohwada Exp $
 Version: 1.20
 Date:   2011-12-29
 Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
+URL:    https://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -13,7 +13,7 @@ Email:  webmaster@ohwada.jp
 ● 変更内容
 1. PHP 5.3 対応
 PHP 5.3.x で推奨されない機能 を修正した
-http://www.php.net/manual/ja/migration53.deprecated.php
+https://www.php.net/manual/ja/migration53.deprecated.php
 (1) new の返り値を参照で代入すること
 
 2. MySQL 5.5 対応

@@ -4,7 +4,7 @@ $Id: readme.txt,v 1.2 2011/12/29 20:06:57 ohwada Exp $
 Version: 1.20
 Date:   2011-12-29
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -13,7 +13,7 @@ This module has same feature as XoopsHeadline module.
 * Changes *
 1. Migrating to PHP 5.3
 Deprecated features in PHP 5.3.x
-http://www.php.net/manual/en/migration53.deprecated.php
+https://www.php.net/manual/en/migration53.deprecated.php
 (1) Assigning the return value of new by reference is now deprecated.
 
 1. Migrating to MySQL 5.5
@@ -30,7 +30,7 @@ This module has same feature as XoopsHeadline module.
 
 * main change *
 (1) added German
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
 
 
 =================================================

@@ -17,5 +17,3 @@
 //define('_MB_RSSC_HEADLINE_TITLE','ヘッドライン');
 define('_MB_RSSC_HEADLINE_DISPLAYF', 'サイトロゴの表示');
 define('_MB_RSSC_HEADLINE_MAXITEM', 'それぞれの記事の表示件数');
-
-?>

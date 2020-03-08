@@ -23,4 +23,3 @@ define('_MI_RSSC_HEADLINE_DESC', 'Anzeige von RSS/XML Neues von anderen Seiten')
 define('_MI_RSSC_HEADLINE_BNAME', 'RSSC Schlagzeilen');
 // Names of admin menu items
 define('_MI_RSSC_HEADLINE_ADMENU1', 'RSSC Einstellungen');
-?>

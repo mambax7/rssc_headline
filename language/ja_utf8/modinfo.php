@@ -26,5 +26,3 @@ define('_MI_RSSC_HEADLINE_BNAME', 'RSSC ヘッドラインブロック');
 
 // Names of admin menu items
 define('_MI_RSSC_HEADLINE_ADMENU1', 'RSSC ヘッドライン一覧');
-
-?>
