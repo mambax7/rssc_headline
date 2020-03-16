@@ -5,7 +5,7 @@
 # BLOB/TEXT can't have a default value
 
 # 2006-07-02 K.OHWADA
-# change xoopsheadline to rssc_headline
+# change xoopsheadline to rssheadline
 # add field headline_rssc_lid
 
 #=========================================================
@@ -15,7 +15,7 @@
 # based on xoopsHeadline
 #=========================================================
 
-CREATE TABLE rssc_headline (
+CREATE TABLE rssheadline (
   headline_id smallint(3) unsigned NOT NULL auto_increment,
   headline_name varchar(255) NOT NULL default '',
   headline_url varchar(255) NOT NULL default '',

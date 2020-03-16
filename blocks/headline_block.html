@@ -1,5 +1,5 @@
 <{* $Id: headline_block.html,v 1.1 2011/12/29 14:41:31 ohwada Exp $ *}>
-<{* change xoopsheadline to rssc_headline $ *}>
+<{* change xoopsheadline to rssheadline $ *}>
 
 <a href="<{$site_url}>" target="_blank"><{$site_name}></a><br>
 <{if $image.url != ""}>
@@ -9,7 +9,7 @@
 <ul>
 <{section name=i loop=$items}>
   <{if $items[i].title != ""}>
-  <li><a href="<{$xoops_url}>/modules/rssc_headline/index.php?id=<{$site_id}>#<{$items[i].link}>"><{$items[i].title}></a></li>
+  <li><a href="<{$xoops_url}>/modules/rssheadline/index.php?id=<{$site_id}>#<{$items[i].link}>"><{$items[i].title}></a></li>
   <{/if}>
 <{/section}>
 </ul>

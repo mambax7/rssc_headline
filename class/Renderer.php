@@ -1,13 +1,16 @@
 <?php
+
+namespace XoopsModules\Rssheadline;
+
 // $Id: headlinerenderer.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2007-08-01 K.OHWADA
 // main.php
 
 // 2006-07-02 K.OHWADA
-// change _HL_xx to _RSSC_HEADLINE_xx
-// change xoopsheadline to rssc_headline
-// change XoopsHeadline to rssc_headline
+// change _HL_xx to _MD_RSSHEADLINE__xx
+// change xoopsheadline to rssheadline
+// change XoopsHeadline to rssheadline
 
 //=========================================================
 // RSSC HeadLine
@@ -22,15 +25,21 @@ require_once XOOPS_ROOT_PATH . '/class/template.php';
 $XOOPS_LANGUAGE = $GLOBALS['xoopsConfig']['language'];
 
 // main.php
-if (file_exists(XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $XOOPS_LANGUAGE . '/main.php')) {
-    require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $XOOPS_LANGUAGE . '/main.php';
-} else {
-    require_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/english/main.php';
-}
+//if (file_exists(XOOPS_ROOT_PATH . '/modules/rssheadline/language/' . $XOOPS_LANGUAGE . '/main.php')) {
+//    require_once XOOPS_ROOT_PATH . '/modules/rssheadline/language/' . $XOOPS_LANGUAGE . '/main.php';
+//} else {
+//    require_once XOOPS_ROOT_PATH . '/modules/rssheadline/language/english/main.php';
+//}
 
-class rssc_headline_Renderer
+xoops_loadLanguage('main');
+
+/**
+ * Class Renderer
+ * @package XoopsModules\Rssheadline
+ */
+class Renderer
 {
-    // holds reference to rssc_headline class object
+    // holds reference to rssheadline class object
     public $_hl;
 
     // XoopTemplate object
@@ -51,18 +60,26 @@ class rssc_headline_Renderer
 
     // ---
 
+    /**
+     * Renderer constructor.
+     * @param $headline
+     */
     public function __construct(&$headline)
     {
         $this->_hl  = &$headline;
-        $this->_tpl = new XoopsTpl();
+        $this->_tpl = new \XoopsTpl();
 
         // --- define rssc handler ---
-        $this->_rsscHandler = xoops_getModuleHandler('rssc', 'rssc_headline');
+        $this->_rsscHandler = xoops_getModuleHandler('rssc', 'rssheadline');
         $this->_rssc_lid    = $this->_hl->getVar('headline_rssc_lid');
         // ---
     }
 
     // --- not use ---
+
+    /**
+     * @return bool|void
+     */
     public function xxx_updateCache()
     {
         if (!$fp = fopen($this->_hl->getVar('headline_rssurl'), 'rb')) {
@@ -77,13 +94,17 @@ class rssc_headline_Renderer
         fclose($fp);
         $this->_hl->setVar('headline_xml', $this->convertToUtf8($data));
         $this->_hl->setVar('headline_updated', time());
-        $headlineHandler = xoops_getModuleHandler('headline', 'rssc_headline');
+        $headlineHandler = xoops_getModuleHandler('headline', 'rssheadline');
 
         return $headlineHandler->insert($this->_hl);
     }
 
     // ---
 
+    /**
+     * @param bool $force_update
+     * @return bool
+     */
     public function renderFeed($force_update = false)
     {
         // --- update & fetch cache ---
@@ -144,23 +165,27 @@ class rssc_headline_Renderer
         }
         $this->_tpl->assign(
             [
-                'lang_lastbuild'   => _RSSC_HEADLINE_LASTBUILD,
-                'lang_language'    => _RSSC_HEADLINE_LANGUAGE,
-                'lang_description' => _RSSC_HEADLINE_DESCRIPTION,
-                'lang_webmaster'   => _RSSC_HEADLINE_WEBMASTER,
-                'lang_category'    => _RSSC_HEADLINE_CATEGORY,
-                'lang_generator'   => _RSSC_HEADLINE_GENERATOR,
-                'lang_title'       => _RSSC_HEADLINE_TITLE,
-                'lang_pubdate'     => _RSSC_HEADLINE_PUBDATE,
-                'lang_description' => _RSSC_HEADLINE_DESCRIPTION,
+                'lang_lastbuild'   => _MD_RSSHEADLINE__LASTBUILD,
+                'lang_language'    => _MD_RSSHEADLINE__LANGUAGE,
+                'lang_description' => _MD_RSSHEADLINE__DESCRIPTION,
+                'lang_webmaster'   => _MD_RSSHEADLINE__WEBMASTER,
+                'lang_category'    => _MD_RSSHEADLINE__CATEGORY,
+                'lang_generator'   => _MD_RSSHEADLINE__GENERATOR,
+                'lang_title'       => _MD_RSSHEADLINE__TITLE,
+                'lang_pubdate'     => _MD_RSSHEADLINE__PUBDATE,
+                'lang_description' => _MD_RSSHEADLINE__DESCRIPTION,
                 'lang_more'        => _MORE,
             ]
         );
-        $this->_feed = $this->_tpl->fetch('db:rssc_headline_feed.html');
+        $this->_feed = $this->_tpl->fetch('db:rssheadline_feed.html');
 
         return true;
     }
 
+    /**
+     * @param bool $force_update
+     * @return bool
+     */
     public function renderBlock($force_update = false)
     {
         // --- update & fetch cache ---
@@ -216,19 +241,23 @@ class rssc_headline_Renderer
             $this->_tpl->append_by_ref('items', $items[$i]);
         }
         $this->_tpl->assign(['site_name' => $this->_hl->getVar('headline_name'), 'site_url' => $this->_hl->getVar('headline_url'), 'site_id' => $this->_hl->getVar('headline_id')]);
-        $this->_block = $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssc_headline/blocks/headline_block.html');
+        $this->_block = $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssheadline/blocks/headline_block.html');
 
         return true;
     }
 
     // --- not use ---
+
+    /**
+     * @return bool
+     */
     public function xxx_parse()
     {
         if (isset($this->_parser)) {
             return true;
         }
         require_once XOOPS_ROOT_PATH . '/class/xml/rss/xmlrss2parser.php';
-        $this->_parser = new XoopsXmlRss2Parser($this->_hl->getVar('headline_xml'));
+        $this->_parser = new \XoopsXmlRss2Parser($this->_hl->getVar('headline_xml'));
         switch ($this->_hl->getVar('headline_encoding')) {
             case 'utf-8':
                 $this->_parser->useUtfEncoding();
@@ -263,11 +292,18 @@ class rssc_headline_Renderer
         return $this->_block;
     }
 
+    /**
+     * @param $err
+     */
     public function _setErrors($err)
     {
         $this->_errors[] = $err;
     }
 
+    /**
+     * @param bool $ashtml
+     * @return array|string
+     */
     public function &getErrors($ashtml = true)
     {
         if (!$ashtml) {
@@ -287,6 +323,10 @@ class rssc_headline_Renderer
     // overide this method in /language/your_language/headlinerenderer.php
     // this method is called by the array_walk function
     // return void
+    /**
+     * @param $value
+     * @param $key
+     */
     public function convertFromUtf8(&$value, $key)
     {
     }
@@ -294,6 +334,10 @@ class rssc_headline_Renderer
     // abstract
     // overide this method in /language/your_language/headlinerenderer.php
     // return string
+    /**
+     * @param $xmlfile
+     * @return mixed
+     */
     public function &convertToUtf8($xmlfile)
     {
         return $xmlfile;

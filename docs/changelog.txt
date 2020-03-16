@@ -1,0 +1,98 @@
+<h5>2.01 Alpha 1   [WORK IN PROGRESS - NOT RELEASED]</h5>  Dev: XOOPS 2.5.11, PHP 7.4.3
+<hr>
+- namespaces (mamba)
+- class autoloading (mamba)
+
+WORK IN PROGRESS
+
+
+
+=================================================
+Version: 1.20
+Date:   2011-12-29
+Author: Kenichi OHWADA
+URL:    https://linux2.ohwada.net/
+Email:  webmaster@ohwada.net
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* Changes *
+1. Migrating to PHP 5.3
+Deprecated features in PHP 5.3.x
+https://www.php.net/manual/en/migration53.deprecated.php
+(1) Assigning the return value of new by reference is now deprecated.
+
+1. Migrating to MySQL 5.5
+(1) TYPE=MyISAM -> ENGINE=MyISAM
+(2) BLOB/TEXT can't have a default value
+
+
+=================================================
+Version: 1.15
+Date:   2008-01-18
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* main change *
+(1) added German
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
+
+
+=================================================
+Version: 1.14
+Date:   2007-08-01
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* main change *
+(1) added Japanese UTF-8 files
+
+
+=================================================
+Version: 1.13
+Date:   2007-06-09
+Author: Kenichi OHWADA
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* main change *
+(1) change some, according to the change of the RSSC module (v0.60).
+(2) require happy_linux module v0.90.
+
+
+=================================================
+Version: 1.12
+Date:   2007-05-20
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* main change *
+(1) show pubdate if not exist lastbuilddate
+(2) added Persian laguage files (translated by xoops persian)
+
+
+=================================================
+Version: 1.11
+Date:   2006-09-10
+=================================================
+
+This module has same feature as XoopsHeadline module.
+
+* main change *
+(1) change some, according to the change of the RSSC module.
+(2) support RSS which have guid field with non URL format.
+(3) show error message, if cannot parse RSS feed, when add new link.
+
+
+=================================================
+Version: 1.10
+Date:   2006-07-10
+=================================================
+
+
+

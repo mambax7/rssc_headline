@@ -122,12 +122,12 @@ becuase of cooperation feature with twe modules.
 
 (1) when deleted a link record in RSSC module.
 Even if admin delete a link record in RSSC module,
-this module does not delete link record in rssc_headline module.
-And then, this module can not show RSS feed for link record in rssc_headline module.
+this module does not delete link record in rssheadline module.
+And then, this module can not show RSS feed for link record in rssheadline module.
 
 Admin can correct this problem.
 Admin add same link whitch was deleted in RSSC module.
-And modify link ID of added link in in rssc_headline module.
+And modify link ID of added link in in rssheadline module.
 
 (2) there are twe or more link record with same "URL of the RDF/RSS file" in RSSC module.
 When admin add link with mistake "URL of the RDF/RSS file" in rssc_hedline module,
@@ -150,5 +150,5 @@ when admin select link A,
 this module can show RSS feed 1,3,5 which belongs to link A.
 
 Admin can correct this problem.
-Admin delete link record with same "URL of the RDF/RSS file" in rssc_headline module and RSSC module.
+Admin delete link record with same "URL of the RDF/RSS file" in rssheadline module and RSSC module.
 

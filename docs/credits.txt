@@ -1,0 +1,6 @@
+Credits
+===============
+
+Originally developed by Kenichi OHWADA
+
+Version 1.2 was updated to XOOPS 2.5.10 Standard GUI and namespaces by Michael Beck (Mamba)

@@ -2,7 +2,7 @@
 // $Id: main.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
-// change _HL_xx to _RSSC_HEADLINE_xx
+// change _HL_xx to _MD_RSSHEADLINE__xx
 
 //=========================================================
 // RSSC HeadLine
@@ -12,14 +12,14 @@
 // Id: main.php,v 1.2 2005/03/18 12:52:49 onokazu Exp
 //=========================================================
 
-define('_RSSC_HEADLINE_LASTBUILD', 'Erneuert');
-define('_RSSC_HEADLINE_LANGUAGE', 'Sprache');
-define('_RSSC_HEADLINE_DESCRIPTION', 'Beschreibung');
-define('_RSSC_HEADLINE_WEBMASTER', 'Webmaster');
-define('_RSSC_HEADLINE_CATEGORY', 'Kategorie');
-define('_RSSC_HEADLINE_GENERATOR', 'Generator');
-define('_RSSC_HEADLINE_TITLE', 'Titel');
-define('_RSSC_HEADLINE_PUBDATE', 'Veröffentlicht am');
-define('_RSSC_HEADLINE_FAILGET', 'Fehler beim Lesen RSS feed von %s');
-define('_RSSC_HEADLINE_GOTOTOP', 'Gehe zum Anfang');
-define('_RSSC_HEADLINE_HEADLINES', 'Schlagzeilen');
+define('_MD_RSSHEADLINE__LASTBUILD', 'Erneuert');
+define('_MD_RSSHEADLINE__LANGUAGE', 'Sprache');
+define('_MD_RSSHEADLINE__DESCRIPTION', 'Beschreibung');
+define('_MD_RSSHEADLINE__WEBMASTER', 'Webmaster');
+define('_MD_RSSHEADLINE__CATEGORY', 'Kategorie');
+define('_MD_RSSHEADLINE__GENERATOR', 'Generator');
+define('_MD_RSSHEADLINE__TITLE', 'Titel');
+define('_MD_RSSHEADLINE__PUBDATE', 'Veröffentlicht am');
+define('_MD_RSSHEADLINE__FAILGET', 'Fehler beim Lesen RSS feed von %s');
+define('_MD_RSSHEADLINE__GOTOTOP', 'Gehe zum Anfang');
+define('_MD_RSSHEADLINE__HEADLINES', 'Schlagzeilen');

@@ -2,7 +2,7 @@
 // $Id: main.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
-// change _HL_xx to _RSSC_HEADLINE_xx
+// change _HL_xx to _MD_RSSHEADLINE__xx
 
 //=========================================================
 // RSSC HeadLine
@@ -13,14 +13,14 @@
 // Id: main.php,v 1.2 2005/03/18 13:00:59 onokazu Exp
 //=========================================================
 
-define('_RSSC_HEADLINE_LASTBUILD', '最終更新日');
-define('_RSSC_HEADLINE_LANGUAGE', '言語');
-define('_RSSC_HEADLINE_DESCRIPTION', 'サイト'); //description
-define('_RSSC_HEADLINE_WEBMASTER', 'ウェブマスター');
-define('_RSSC_HEADLINE_CATEGORY', 'カテゴリ');
-define('_RSSC_HEADLINE_GENERATOR', '作成');
-define('_RSSC_HEADLINE_TITLE', '題名');
-define('_RSSC_HEADLINE_PUBDATE', '公開');
-define('_RSSC_HEADLINE_FAILGET', '%s からの RSSの取得ができませんでした。');
-define('_RSSC_HEADLINE_GOTOTOP', 'トップに戻る');
-define('_RSSC_HEADLINE_HEADLINES', 'ヘッドライン');
+define('_MD_RSSHEADLINE__LASTBUILD', '最終更新日');
+define('_MD_RSSHEADLINE__LANGUAGE', '言語');
+define('_MD_RSSHEADLINE__DESCRIPTION', 'サイト'); //description
+define('_MD_RSSHEADLINE__WEBMASTER', 'ウェブマスター');
+define('_MD_RSSHEADLINE__CATEGORY', 'カテゴリ');
+define('_MD_RSSHEADLINE__GENERATOR', '作成');
+define('_MD_RSSHEADLINE__TITLE', '題名');
+define('_MD_RSSHEADLINE__PUBDATE', '公開');
+define('_MD_RSSHEADLINE__FAILGET', '%s からの RSSの取得ができませんでした。');
+define('_MD_RSSHEADLINE__GOTOTOP', 'トップに戻る');
+define('_MD_RSSHEADLINE__HEADLINES', 'ヘッドライン');

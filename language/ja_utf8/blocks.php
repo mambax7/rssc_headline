@@ -2,7 +2,7 @@
 // $Id: blocks.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
-// change _MB_HEADLINES_xx to _MB_RSSC_HEADLINE_xx
+// change _MB_HEADLINES_xx to _MB_RSSHEADLINE_xx
 
 //=========================================================
 // RSSC HeadLine
@@ -14,6 +14,6 @@
 //=========================================================
 
 // Blocks
-//define('_MB_RSSC_HEADLINE_TITLE','ヘッドライン');
-define('_MB_RSSC_HEADLINE_DISPLAYF', 'サイトロゴの表示');
-define('_MB_RSSC_HEADLINE_MAXITEM', 'それぞれの記事の表示件数');
+//define('_MB_RSSHEADLINE_TITLE','ヘッドライン');
+define('_MB_RSSHEADLINE_DISPLAYF', 'サイトロゴの表示');
+define('_MB_RSSHEADLINE_MAXITEM', 'それぞれの記事の表示件数');

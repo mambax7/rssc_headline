@@ -1,11 +1,17 @@
 <?php
+
+namespace XoopsModules\Rssheadline;
+
+
+use XoopsModules\Rssc;
+
 // $Id: rssc.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
 // link_xml_handler
 
 // 2006-09-20 K.OHWADA
-// use rssc_xml_utlity : not use rssc_link_exist_handler
+// use rssc_xml_utlity : not use Rssc\LinkExistHandler
 // add refresh_for_add_headline()
 
 //=========================================================
@@ -17,8 +23,8 @@
 define('RSSC_HEADLINE_RSSC_DIRNAME', 'rssc');
 
 // RSSC files
-if (file_exists(XOOPS_ROOT_PATH . '/modules/' . RSSC_HEADLINE_RSSC_DIRNAME . '/api/rssc_headline.php')) {
-    require_once XOOPS_ROOT_PATH . '/modules/' . RSSC_HEADLINE_RSSC_DIRNAME . '/api/rssc_headline.php';
+if (file_exists(XOOPS_ROOT_PATH . '/modules/' . RSSC_HEADLINE_RSSC_DIRNAME . '/api/rsscheadline.php')) {
+    require_once XOOPS_ROOT_PATH . '/modules/' . RSSC_HEADLINE_RSSC_DIRNAME . '/api/rsscheadline.php';
 } else {
     die('require RSSC module');
 }
@@ -27,7 +33,11 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/' . RSSC_HEADLINE_RSSC_DIRNAME . '/a
 // class ahl rssc handler
 // 2005-10-20 K.OHWADA
 //=========================================================
-class rssc_headlineRsscHandler extends rssc_error
+
+/**
+ * Class RsscHandler
+ */
+class RsscHandler extends Rssc\Error
 {
     // config constant
     public $FORMAT_DATE = 'l';    // l=long, r=rfc822
@@ -57,10 +67,10 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_rssc_refreshHandler  = rssc_getHandler('refresh', RSSC_HEADLINE_RSSC_DIRNAME);
-        $this->_rssc_viewHandler     = rssc_getHandler('view', RSSC_HEADLINE_RSSC_DIRNAME);
-        $this->_rssc_link_xmlHandler = rssc_getHandler('link_xml', RSSC_HEADLINE_RSSC_DIRNAME);
-        $this->_rssc_utility         = rssc_xml_utility::getInstance();
+        $this->_rssc_refreshHandler  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Refresh', RSSC_HEADLINE_RSSC_DIRNAME);
+        $this->_rssc_viewHandler     = \XoopsModules\Rssc\Helper::getInstance()->getHandler('View', RSSC_HEADLINE_RSSC_DIRNAME);
+        $this->_rssc_link_xmlHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('LinkXml', RSSC_HEADLINE_RSSC_DIRNAME);
+        $this->_rssc_utility         = Rssc\XmlUtility::getInstance();
 
         global $xoopsModule;
         if (is_object($xoopsModule)) {
@@ -69,8 +79,12 @@ class rssc_headlineRsscHandler extends rssc_error
     }
 
     //=========================================================
-    // for class rssc_headline_Renderer
+    // for class Renderer
     //=========================================================
+    /**
+     * @param $rssc_lid
+     * @return mixed
+     */
     public function update_cache($rssc_lid)
     {
         $this->_rssc_refreshHandler->setPriorityRssAtom(RSSC_C_SEL_RSS);
@@ -78,6 +92,9 @@ class rssc_headlineRsscHandler extends rssc_error
         return $this->_rssc_refreshHandler->refresh($rssc_lid);
     }
 
+    /**
+     * @param $rssc_lid
+     */
     public function fetch_cache($rssc_lid)
     {
         $this->_rssc_viewHandler->set_max_title(-1);    // unlimited
@@ -85,6 +102,9 @@ class rssc_headlineRsscHandler extends rssc_error
         $this->_result = &$this->_rssc_viewHandler->get_sanitized_store_by_lid($rssc_lid);
     }
 
+    /**
+     * @return mixed
+     */
     public function &get_channel()
     {
         $channel_obj = &$this->_rssc_viewHandler->create_channel();
@@ -95,11 +115,17 @@ class rssc_headlineRsscHandler extends rssc_error
         return $arr;
     }
 
+    /**
+     * @return bool
+     */
     public function &get_image()
     {
         return $this->_get_result('image');
     }
 
+    /**
+     * @return bool
+     */
     public function &get_items()
     {
         $ret   = false;
@@ -115,6 +141,10 @@ class rssc_headlineRsscHandler extends rssc_error
         return $ret;
     }
 
+    /**
+     * @param $key
+     * @return bool
+     */
     public function &_get_result($key)
     {
         $ret = false;
@@ -125,11 +155,17 @@ class rssc_headlineRsscHandler extends rssc_error
         return $ret;
     }
 
+    /**
+     * @param bool $force_update
+     */
     public function set_force_update($force_update = false)
     {
         $this->_rssc_refreshHandler->set_force_refresh($force_update);
     }
 
+    /**
+     * @param $value
+     */
     public function set_max_num_feed($value)
     {
         $this->_rssc_viewHandler->setFeedLimit($value);
@@ -138,6 +174,9 @@ class rssc_headlineRsscHandler extends rssc_error
     //=========================================================
     // for admin/index.php
     //=========================================================
+    /**
+     * @return int
+     */
     public function check_add_headline()
     {
         $this->_clear_errors();
@@ -183,6 +222,10 @@ class rssc_headlineRsscHandler extends rssc_error
         return 0;
     }
 
+    /**
+     * @param $headline_id
+     * @return bool|int|mixed|void
+     */
     public function add_headline($headline_id)
     {
         // already exist
@@ -218,6 +261,10 @@ class rssc_headlineRsscHandler extends rssc_error
         return $newid;
     }
 
+    /**
+     * @param $rssc_lid
+     * @return mixed
+     */
     public function refresh_for_add_headline($rssc_lid)
     {
         $this->_rssc_refreshHandler->setPriorityRssAtom(RSSC_C_SEL_RSS);
@@ -237,11 +284,20 @@ class rssc_headlineRsscHandler extends rssc_error
         return $ret;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_parse_result()
     {
         return $this->_parse_result;
     }
 
+    /**
+     * @param $rssc_lid
+     * @param $url
+     * @param $rss_url
+     * @return int
+     */
     public function check_mod_form_headline($rssc_lid, $url, $rss_url)
     {
         $this->_clear_errors();
@@ -288,9 +344,13 @@ class rssc_headlineRsscHandler extends rssc_error
         return 0;
     }
 
+    /**
+     * @param $rssc_lid
+     * @return bool
+     */
     public function mod_headline($rssc_lid)
     {
-        $link_obj = &$this->_rssc_link_xmlHandler->get($rssc_lid);
+        $link_obj = $this->_rssc_link_xmlHandler->get($rssc_lid);
         if (!is_object($link_obj)) {
             return false;
         }
@@ -322,9 +382,13 @@ class rssc_headlineRsscHandler extends rssc_error
         return true;
     }
 
+    /**
+     * @param $rssc_lid
+     * @return bool
+     */
     public function del_headline($rssc_lid)
     {
-        $link_obj = &$this->_rssc_link_xmlHandler->get($rssc_lid);
+        $link_obj = $this->_rssc_link_xmlHandler->get($rssc_lid);
         if (!is_object($link_obj)) {
             return false;
         }
@@ -338,9 +402,14 @@ class rssc_headlineRsscHandler extends rssc_error
         return true;
     }
 
+    /**
+     * @param $rssc_lid
+     * @param $i
+     * @return bool
+     */
     public function update_headline($rssc_lid, $i)
     {
-        $link_obj = &$this->_rssc_link_xmlHandler->get($rssc_lid);
+        $link_obj = $this->_rssc_link_xmlHandler->get($rssc_lid);
         if (!is_object($link_obj)) {
             return false;
         }
@@ -362,13 +431,22 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     // linkHandler object
     //---------------------------------------------------------
+    /**
+     * @param $rssc_lid
+     * @return \XoopsObject|null
+     */
     public function &get($rssc_lid)
     {
-        $this->_rssc_link_obj = &$this->_rssc_link_xmlHandler->get($rssc_lid);
+        $this->_rssc_link_obj = $this->_rssc_link_xmlHandler->get($rssc_lid);
 
         return $this->_rssc_link_obj;
     }
 
+    /**
+     * @param        $key
+     * @param string $format
+     * @return bool
+     */
     public function get_cache_var($key, $format = 's')
     {
         if (!is_object($this->_rssc_link_obj)) {
@@ -393,6 +471,10 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     // feedHandler
     //---------------------------------------------------------
+    /**
+     * @param $rssc_lid
+     * @return mixed
+     */
     public function get_feed_count($rssc_lid)
     {
         return $this->_rssc_viewHandler->get_feed_count_by_lid($rssc_lid);
@@ -401,6 +483,11 @@ class rssc_headlineRsscHandler extends rssc_error
     //---------------------------------------------------------
     // POST
     //---------------------------------------------------------
+    /**
+     * @param $array
+     * @param $key
+     * @return string
+     */
     public function get_post_url($array, $key)
     {
         if (isset($array[$key]) && ('https://' != $array[$key])) {
@@ -410,6 +497,10 @@ class rssc_headlineRsscHandler extends rssc_error
         return '';
     }
 
+    /**
+     * @param $value
+     * @return string
+     */
     public function get_post_encoding($value)
     {
         if ('auto' == $value) {
@@ -419,6 +510,9 @@ class rssc_headlineRsscHandler extends rssc_error
         return $value;
     }
 
+    /**
+     * @return array|int|mixed|null
+     */
     public function get_xoops_uid()
     {
         global $xoopsUser;
@@ -431,6 +525,9 @@ class rssc_headlineRsscHandler extends rssc_error
         return $uid;
     }
 
+    /**
+     * @param $value
+     */
     public function set_mid($value)
     {
         $this->_mid = (int)$value;
