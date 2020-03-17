@@ -1,6 +1,16 @@
 $Id: readme.txt,v 1.2 2011/12/29 20:06:57 ohwada Exp $
 
 =================================================
+Version: 1.30
+Date:   2020-03-17
+Author: Kenichi OHWADA
+URL:    http://linux2.ohwada.net/
+Email:  webmaster@ohwada.net
+=================================================
+
+PHP 7 adjustments (mamba)
+
+=================================================
 Version: 1.20
 Date:   2011-12-29
 Author: Kenichi OHWADA
