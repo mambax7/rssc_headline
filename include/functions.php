@@ -1,4 +1,5 @@
 <?php
+
 // $Id: functions.php,v 1.2 2011/12/29 20:06:57 ohwada Exp $
 
 // 2011-12-29 K.OHWADA
@@ -16,17 +17,22 @@
 // based on xoopsHeadline
 //=========================================================
 
+/**
+ * @param $headline
+ * @return \rssc_headline_Renderer|\rssc_headline_RendererLocal
+ */
 function &rssc_headline_getrenderer(&$headline)
 {
-	include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/class/headlinerenderer.php';
-	if (file_exists(XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$GLOBALS['xoopsConfig']['language'].'/headlinerenderer.php')) {
-		include_once XOOPS_ROOT_PATH.'/modules/rssc_headline/language/'.$GLOBALS['xoopsConfig']['language'].'/headlinerenderer.php';
-		if (class_exists('rssc_headline_RendererLocal')) {
-			$ret = new rssc_headline_RendererLocal($headline);
-			return $ret;
-		}
-	}
-	$ret = new rssc_headline_Renderer($headline);
-	return $ret;
+    include_once XOOPS_ROOT_PATH . '/modules/rssc_headline/class/headlinerenderer.php';
+    if (file_exists(XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $GLOBALS['xoopsConfig']['language'] . '/headlinerenderer.php')) {
+        include_once XOOPS_ROOT_PATH . '/modules/rssc_headline/language/' . $GLOBALS['xoopsConfig']['language'] . '/headlinerenderer.php';
+        if (class_exists('rssc_headline_RendererLocal')) {
+            $ret = new rssc_headline_RendererLocal($headline);
+
+            return $ret;
+        }
+    }
+    $ret = new rssc_headline_Renderer($headline);
+
+    return $ret;
 }
-?>

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -23,5 +24,3 @@ define('_RSSC_HEADLINE_PUBDATE', 'Published');
 define('_RSSC_HEADLINE_FAILGET', 'Failed retrieving RSS feed from %s');
 define('_RSSC_HEADLINE_GOTOTOP', 'Goto Top');
 define('_RSSC_HEADLINE_HEADLINES', 'Headlines');
-
-?>

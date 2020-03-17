@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -24,4 +25,3 @@ define('_RSSC_HEADLINE_PUBDATE', '公開');
 define('_RSSC_HEADLINE_FAILGET', '%s からの RSSの取得ができませんでした。');
 define('_RSSC_HEADLINE_GOTOTOP', 'トップに戻る');
 define('_RSSC_HEADLINE_HEADLINES', 'ヘッドライン');
-?>

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: blocks.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -15,5 +16,3 @@
 // Blocks
 define('_MB_RSSC_HEADLINE_DISPLAYF', 'نمایش لوگوی  سایت');
 define('_MB_RSSC_HEADLINE_MAXITEM', 'Max number of items for each headline');
-
-?>

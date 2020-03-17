@@ -1,4 +1,5 @@
 <?php
+
 // $Id: menu.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -13,5 +14,4 @@
 //=========================================================
 
 $adminmenu[0]['title'] = _MI_RSSC_HEADLINE_ADMENU1;
-$adminmenu[0]['link'] = "admin/index.php";
-?>
+$adminmenu[0]['link'] = 'admin/index.php';

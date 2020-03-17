@@ -1,4 +1,5 @@
 <?php
+
 // $Id: blocks.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -17,5 +18,3 @@
 //define('_MB_RSSC_HEADLINE_TITLE','ヘッドライン');
 define('_MB_RSSC_HEADLINE_DISPLAYF', 'サイトロゴの表示');
 define('_MB_RSSC_HEADLINE_MAXITEM', 'それぞれの記事の表示件数');
-
-?>

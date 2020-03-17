@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-09-01 K.OHWADA
@@ -30,16 +31,16 @@ define('_AM_DISPIMG', 'Seiten Bild');
 define('_AM_DISPFULL', 'Vollbild Anzeige');
 define('_AM_DISPMAX', 'Maximale Artikel Anzeige');
 define('_AM_ASBLOCK', 'Anzeige im Block');
-define('_AM_ADDHEADL', 'hinzufügen Schlagzeilen');
+define('_AM_ADDHEADL', 'hinzufï¿½gen Schlagzeilen');
 define('_AM_URLEDFXML', 'URL der RDF/RSS Datei');
 define('_AM_EDITHEADL', 'Editieren Schlagzeilen');
-define('_AM_WANTDEL', 'Sicher Schlagzeilen zu löschen von %s?');
+define('_AM_WANTDEL', 'Sicher Schlagzeilen zu lï¿½schen von %s?');
 define('_AM_INVALIDID', 'Verkehrte ID');
 define('_AM_OBJECTNG', 'Objekt ist nicht Existent');
-define('_AM_FAILUPDATE', 'Fehler beim Speichern in die Database für Schlagzeilen %s');
-define('_AM_FAILDELETE', 'Fehler beim Löschen in die Database für Schlagzeilen %s');
+define('_AM_FAILUPDATE', 'Fehler beim Speichern in die Database fï¿½r Schlagzeilen %s');
+define('_AM_FAILDELETE', 'Fehler beim Lï¿½schen in die Database fï¿½r Schlagzeilen %s');
 // 2006-07-02 K.OHWADA
-define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch <b>RSS Encoding</b> automatisch, <br />bei Fehler, <br />bitte an Web-Site-Support wenden "RSS Auto Discovery"');
+define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch <b>RSS Encoding</b> automatisch, <br>bei Fehler, <br>bitte an Web-Site-Support wenden "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_RSS_EXIST', 'Already exists this "RDF/RSS URL"');
 //define('_AM_RSSC_LINK_RSS_EXIST_MORE', 'There are twe or more links which have same "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_LID_EXIST_NOT', 'There are no link with this link');
@@ -47,4 +48,3 @@ define('_AM_INDEX_DESC', 'Entdecken Sie  <b>URL of RDF/RSS Datei</b> automatisch
 //define('_AM_RSSC_LID', 'Link ID of RSS Center');
 //define('_AM_RSSC_LID_UPDATE', 'Update Link ID');
 //define('_AM_RSSC_GOTO_LINK', 'Goto admin page of RSS center');
-?>

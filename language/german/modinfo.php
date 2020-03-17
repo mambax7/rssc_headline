@@ -1,4 +1,5 @@
 <?php
+
 // $Id: modinfo.php,v 1.1 2011/12/29 14:41:32 ohwada Exp $
 
 // 2006-07-02 K.OHWADA
@@ -23,4 +24,3 @@ define('_MI_RSSC_HEADLINE_DESC', 'Anzeige von RSS/XML Neues von anderen Seiten')
 define('_MI_RSSC_HEADLINE_BNAME', 'RSSC Schlagzeilen');
 // Names of admin menu items
 define('_MI_RSSC_HEADLINE_ADMENU1', 'RSSC Einstellungen');
-?>

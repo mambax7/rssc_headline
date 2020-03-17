@@ -3,13 +3,13 @@
 
 <h4 style="text-align:left;"><{$lang_headlines}></h4>
 <div style='padding: 1px; text-align: left;'>
-      <ul style="list-style-image:url(images/rss.gif);">
-      <!-- start site loop -->
-      <{foreach item=site from=$feed_sites}>
+    <ul style="list-style-image:url(images/rss.gif);">
+        <!-- start site loop -->
+        <{foreach item=site from=$feed_sites}>
         <li>&nbsp;<a href="<{$xoops_url}>/modules/rssc_headline/index.php?id=<{$site.id}>"><{$site.name}></a></li>
-      <{/foreach}>
-      <!-- end site loop -->
-      </ul>
+        <{/foreach}>
+        <!-- end site loop -->
+    </ul>
 </div>
 
 <{$headline}>

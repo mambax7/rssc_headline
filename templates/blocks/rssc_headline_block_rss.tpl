@@ -2,6 +2,6 @@
 <{* same as xoopsheadline_block_rss.html $ *}>
 
 <{foreach item=feed from=$block.feeds}>
-<{$feed}>
-<br />
-<{/foreach}>
+    <{$feed}>
+<br>
+    <{/foreach}>
