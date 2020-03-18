@@ -149,14 +149,16 @@ class rssc_headline_Renderer
         //		$items =& $this->_parser->getItems();
         // ---
 
-        $count = count($items);
-        $max = ($count > $this->_hl->getVar('headline_mainmax')) ? $this->_hl->getVar('headline_mainmax') : $count;
-        for ($i = 0; $i < $max; $i++) {
-            // ---
-            //			array_walk($items[$i], array($this, 'convertFromUtf8'));
-            // ---
+        if (is_array($items) ) {
+            $count = count($items);
+            $max   = ($count > $this->_hl->getVar('headline_mainmax')) ? $this->_hl->getVar('headline_mainmax') : $count;
+            for ($i = 0; $i < $max; $i++) {
+                // ---
+                //			array_walk($items[$i], array($this, 'convertFromUtf8'));
+                // ---
 
-            $this->_tpl->append_by_ref('items', $items[$i]);
+                $this->_tpl->append_by_ref('items', $items[$i]);
+            }
         }
         $this->_tpl->assign(
             [
@@ -226,14 +228,16 @@ class rssc_headline_Renderer
         //		$items =& $this->_parser->getItems();
         // ---
 
-        $count = count($items);
-        $max = ($count > $this->_hl->getVar('headline_blockmax')) ? $this->_hl->getVar('headline_blockmax') : $count;
-        for ($i = 0; $i < $max; $i++) {
-            // ---
-            //			array_walk($items[$i], array($this, 'convertFromUtf8'));
-            // ---
+        if (is_array($items) ) {
+            $count = count($items);
+            $max   = ($count > $this->_hl->getVar('headline_blockmax')) ? $this->_hl->getVar('headline_blockmax') : $count;
+            for ($i = 0; $i < $max; $i++) {
+                // ---
+                //			array_walk($items[$i], array($this, 'convertFromUtf8'));
+                // ---
 
-            $this->_tpl->append_by_ref('items', $items[$i]);
+                $this->_tpl->append_by_ref('items', $items[$i]);
+            }
         }
         $this->_tpl->assign(['site_name' => $this->_hl->getVar('headline_name'), 'site_url' => $this->_hl->getVar('headline_url'), 'site_id' => $this->_hl->getVar('headline_id')]);
         $this->_block = $this->_tpl->fetch('file:' . XOOPS_ROOT_PATH . '/modules/rssc_headline/blocks/headline_block.tpl');

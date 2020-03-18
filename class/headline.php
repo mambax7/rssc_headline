@@ -28,7 +28,7 @@ class rssc_headline_Headline extends XoopsObject
 {
     public function __construct()
     {
-        $this->XoopsObject();
+        parent::__construct();
         $this->initVar('headline_id', XOBJ_DTYPE_INT, null, false);
         $this->initVar('headline_name', XOBJ_DTYPE_TXTBOX, null, true, 255);
         $this->initVar('headline_url', XOBJ_DTYPE_TXTBOX, null, true, 255);
